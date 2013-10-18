@@ -4,8 +4,8 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jbpm</groupId>
   <artifactId>customers-relationship</artifactId>
-  <name>Customer Relationships Example</name>
   <version>1.0</version>
+  <name>Customer Relationships Example</name>
   <repositories>
     <repository>
       <id>guvnor-m2-repo</id>
