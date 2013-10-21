@@ -1,0 +1,4 @@
+This project contains all the Work Item Handlers required by the KIE Project called:
+Customer Relationships Example (customer-relationships)
+Look into the README.txt file of that project to see more details about how they can be configured
+inside the kie-wb and the jbpm-console-ng. 
