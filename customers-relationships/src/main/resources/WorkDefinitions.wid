@@ -10,7 +10,7 @@ import org.drools.core.process.core.datatype.impl.type.ObjectDataType;
     "displayName" : "Create Customer",
     "icon" : "defaultemailicon.gif"
   ],
-[
+  [
     "name" : "ManagersReport",
     "parameters" : [
 	"Report" : new StringDataType()	
@@ -18,7 +18,7 @@ import org.drools.core.process.core.datatype.impl.type.ObjectDataType;
     "displayName" : "Managers Report",
     "icon" : "defaultemailicon.gif"
   ],
-[
+  [
     "name" : "AddCustomerComment",
     "parameters" : [
 	"Comment" : new StringDataType()	
