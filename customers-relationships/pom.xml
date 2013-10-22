@@ -58,32 +58,39 @@
         <dependency>
             <groupId>org.jbpm</groupId>
             <artifactId>jbpm-flow</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jbpm</groupId>
             <artifactId>jbpm-bpmn2</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jbpm</groupId>
             <artifactId>jbpm-flow-builder</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jbpm</groupId>
             <artifactId>jbpm-runtime-manager</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jbpm</groupId>
             <artifactId>jbpm-human-task-core</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jbpm</groupId>
             <artifactId>jbpm-audit</artifactId>
+            <scope>test</scope>
         </dependency>
         
         <dependency>
             <groupId>org.jbpm</groupId>
             <artifactId>jbpm-shared-services</artifactId>
             <classifier>btm</classifier>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.jbpm</groupId>
@@ -94,11 +101,13 @@
             <groupId>org.jboss.solder</groupId>
             <artifactId>solder-api</artifactId>
             <version>${solder.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
@@ -181,11 +190,6 @@
                 <enabled>true</enabled>
                 <updatePolicy>daily</updatePolicy>
             </snapshots>
-        </repository>
-        <repository>
-            <id>guvnor-m2-repo</id>
-            <name>Guvnor M2 Repo</name>
-            <url>/maven2/</url>
         </repository>
     </repositories>
 </project>
