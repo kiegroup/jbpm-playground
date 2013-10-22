@@ -3,13 +3,11 @@ package org.jbpm.simple.rest.client;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.manager.RuntimeEngine;
 import org.kie.api.runtime.process.ProcessInstance;
 import org.kie.api.task.TaskService;
-import org.kie.api.task.model.TaskSummary;
 import org.kie.services.client.api.RemoteRestSessionFactory;
 
 /**
@@ -24,7 +22,7 @@ public class SimpleRestClient
 {
     public static void main( String[] args ) throws MalformedURLException
     {
-        String deploymentId = "org.jbpm:HR:1.0";
+        String deploymentId = "org.jbpm:human-resources:1.0";
         URL appUrl = new URL("http://localhost:8080/kie-wb/");
         String user = "jbpm";
         String password = "jbpm6";
