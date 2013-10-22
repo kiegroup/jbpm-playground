@@ -155,6 +155,7 @@
             <groupId>org.jboss.seam.transaction</groupId>
             <artifactId>seam-transaction</artifactId>
             <version>${seam.tx.version}</version>
+            <scope>test</scope>
         </dependency>
         
         <!-- test: arquillian -->

@@ -51,6 +51,7 @@
             <groupId>javax.xml</groupId>
             <artifactId>webservices-api</artifactId>
             <version>1.4</version>
+            <scope>provided</scope>
           </dependency>
         </dependencies>
         <configuration>
@@ -73,6 +74,7 @@
           <artifactId>kie-api</artifactId>
           <version>6.1.0-SNAPSHOT</version>
          <type>jar</type>
+         <scope>provided</scope>
       </dependency>  
     <dependency>
       <groupId>junit</groupId>
