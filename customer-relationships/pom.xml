@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.jbpm</groupId>
     <artifactId>customer-relationships</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <name>Customer Relationships Kjar Example</name>
     <url>http://jbpm.org</url>
     
