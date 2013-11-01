@@ -1,4 +1,4 @@
-package org.jbpm.example;
+package org.jbpm.customer.relationships.tests;
 
 import bitronix.tm.resource.jdbc.PoolingDataSource;
 import java.util.HashMap;
@@ -48,8 +48,9 @@ public class CDIKIEJUnitTest  {
 
     @Deployment()
     public static Archive<?> createDeployment() {
-        return ShrinkWrap.create(JavaArchive.class, "jbpm-cdi-sample.jar")
+        return ShrinkWrap.create(JavaArchive.class, "customer-relationships-tests.jar")
                 .addPackage("org.jboss.seam.transaction")
+                .addPackages(true, "org.kie.api.task")
                 .addPackages(true, "org.kie.api.runtime.manager")
                 .addPackages(true, "org.kie.internal.runtime.manager")
                 .addPackages(true, "org.jbpm.kie")
@@ -59,8 +60,10 @@ public class CDIKIEJUnitTest  {
                 .addPackages(true, "org.jbpm.services.task.identity")
                 .addPackages(true, "org.jbpm.runtime")
                 .addPackages(true, "org.jbpm.runtime.manager.impl")
+                .addPackages(true, "org.jbpm.runtime.manager.impl.cdi")
                 .addPackages(true, "org.jbpm.shared")
-                .addPackage("org.jbpm.example")
+                .addPackage("org.jbpm.customer.relationships.tests")
+                
                 .addAsManifestResource("META-INF/persistence.xml", ArchivePaths.create("persistence.xml"))
                 .addAsManifestResource("META-INF/beans.xml", ArchivePaths.create("beans.xml"));
    

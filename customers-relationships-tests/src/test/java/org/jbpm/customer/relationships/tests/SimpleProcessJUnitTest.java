@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.jbpm.example;
+package org.jbpm.customer.relationships.tests;
 
 import java.util.HashMap;
 import java.util.List;

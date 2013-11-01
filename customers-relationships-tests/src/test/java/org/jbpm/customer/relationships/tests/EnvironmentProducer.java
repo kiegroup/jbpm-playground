@@ -1,4 +1,4 @@
-package org.jbpm.example;
+package org.jbpm.customer.relationships.tests;
 
 
 import java.lang.reflect.InvocationHandler;

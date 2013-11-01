@@ -2,6 +2,7 @@ package org.jbpm.simple.rest.client;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import org.kie.api.runtime.KieSession;
@@ -40,7 +41,9 @@ public class SimpleRestClient
         ProcessInstance processInstance = ksession.startProcess("hiring", params);
         // do some more interactions here... for example try the Human Task APIs
         // List<TaskSummary> tasksAssignedAsPotentialOwner = taskService.getTasksAssignedAsPotentialOwner("jbpm", "en-UK"); 
-        
-        
-    }
+//        Collection<ProcessInstance> processInstances = ksession.getProcessInstances();
+//        for(ProcessInstance pi : processInstances){
+//            System.out.println("Process Instance: "+pi.getProcessId() + pi.getProcessName());
+//        }
+    }   
 }
