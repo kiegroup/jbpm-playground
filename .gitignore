@@ -8,3 +8,5 @@
 /human-resources/target/
 /human-resources-tests/target/
 /evaluation-tests/target/
+*.tlog
+
