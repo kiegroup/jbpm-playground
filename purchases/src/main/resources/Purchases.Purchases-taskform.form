@@ -1,0 +1,25 @@
+
+<form id="195663732">
+<property name="subject" value=""/>
+<property name="name" value="Purchases.Purchases-taskform.form"/>
+<property name="displayMode" value="template"/>
+<property name="labelMode" value="undefined"/>
+<property name="status" value="0"/>
+<property name="formTemplate" value="&lt;p&gt;$label{:decorator_0}&lt;/p&gt;
+
+&lt;p&gt;$field{:decorator_0}&lt;/p&gt;
+"/>
+<field position="0" name=":decorator_0" type="HTMLLabel" id="468803533">
+<property name="fieldRequired" value="false"/>
+<property name="groupWithPrevious" value="false"/>
+<property name="label" value=""/>
+<property name="inputBinding" value=""/>
+<property name="outputBinding" value=""/>
+<property name="htmlContent" value="quot;caquot;,quot;&lt;p&gt;To execute this process, users must have one of the following roles:&lt;/p&gt;  &lt;p&gt;&amp;nbsp;&lt;/p&gt;  &lt;ul&gt;  &lt;li&gt;Employee&lt;/li&gt;  &lt;li&gt;Administration&lt;/li&gt;  &lt;li&gt;Manager&lt;/li&gt;  &lt;li&gt;Controller&lt;/li&gt;  &lt;li&gt;CFO&lt;/li&gt; &lt;/ul&gt; quot;quot;dequot;,quot;&lt;p&gt;To execute this process, users must have one of the following roles:&lt;/p&gt;  &lt;p&gt;&amp;nbsp;&lt;/p&gt;  &lt;ul&gt;  &lt;li&gt;Employee&lt;/li&gt;  &lt;li&gt;Administration&lt;/li&gt;  &lt;li&gt;Manager&lt;/li&gt;  &lt;li&gt;Controller&lt;/li&gt;  &lt;li&gt;CFO&lt;/li&gt; &lt;/ul&gt; quot;quot;enquot;,quot;&lt;p&gt;To execute this process, users must have one of the following roles:&lt;/p&gt;  &lt;p&gt;&amp;nbsp;&lt;/p&gt;  &lt;ul&gt;  &lt;li&gt;Employee&lt;/li&gt;  &lt;li&gt;Administration&lt;/li&gt;  &lt;li&gt;Manager&lt;/li&gt;  &lt;li&gt;Controller&lt;/li&gt;  &lt;li&gt;CFO&lt;/li&gt; &lt;/ul&gt; quot;quot;esquot;,quot;&lt;p&gt;To execute this process, users must have one of the following roles:&lt;/p&gt;  &lt;p&gt;&amp;nbsp;&lt;/p&gt;  &lt;ul&gt;  &lt;li&gt;Employee&lt;/li&gt;  &lt;li&gt;Administration&lt;/li&gt;  &lt;li&gt;Manager&lt;/li&gt;  &lt;li&gt;Controller&lt;/li&gt;  &lt;li&gt;CFO&lt;/li&gt; &lt;/ul&gt; quot;quot;frquot;,quot;&lt;p&gt;To execute this process, users must have one of the following roles:&lt;/p&gt;  &lt;p&gt;&amp;nbsp;&lt;/p&gt;  &lt;ul&gt;  &lt;li&gt;Employee&lt;/li&gt;  &lt;li&gt;Administration&lt;/li&gt;  &lt;li&gt;Manager&lt;/li&gt;  &lt;li&gt;Controller&lt;/li&gt;  &lt;li&gt;CFO&lt;/li&gt; &lt;/ul&gt; quot;quot;jaquot;,quot;&lt;p&gt;To execute this process, users must have one of the following roles:&lt;/p&gt;  &lt;p&gt;&amp;nbsp;&lt;/p&gt;  &lt;ul&gt;  &lt;li&gt;Employee&lt;/li&gt;  &lt;li&gt;Administration&lt;/li&gt;  &lt;li&gt;Manager&lt;/li&gt;  &lt;li&gt;Controller&lt;/li&gt;  &lt;li&gt;CFO&lt;/li&gt; &lt;/ul&gt; quot;quot;ptquot;,quot;&lt;p&gt;To execute this process, users must have one of the following roles:&lt;/p&gt;  &lt;p&gt;&amp;nbsp;&lt;/p&gt;  &lt;ul&gt;  &lt;li&gt;Employee&lt;/li&gt;  &lt;li&gt;Administration&lt;/li&gt;  &lt;li&gt;Manager&lt;/li&gt;  &lt;li&gt;Controller&lt;/li&gt;  &lt;li&gt;CFO&lt;/li&gt; &lt;/ul&gt; quot;quot;zhquot;,quot;&lt;p&gt;To execute this process, users must have one of the following roles:&lt;/p&gt;  &lt;p&gt;&amp;nbsp;&lt;/p&gt;  &lt;ul&gt;  &lt;li&gt;Employee&lt;/li&gt;  &lt;li&gt;Administration&lt;/li&gt;  &lt;li&gt;Manager&lt;/li&gt;  &lt;li&gt;Controller&lt;/li&gt;  &lt;li&gt;CFO&lt;/li&gt; &lt;/ul&gt; quot;"/>
+</field>
+<dataHolder inputId="" name="#0000A0" type="dataModelerEntry" outId="po" value="org.jbpm.examples.purchases.PurchaseOrder" id="po"/>
+<dataHolder inputId="" name="#FF54A7" type="basicType" outId="review_admin" value="java.lang.String" id="review_admin"/>
+<dataHolder inputId="" name="#B29FE4" type="basicType" outId="review_cfo" value="java.lang.String" id="review_cfo"/>
+<dataHolder inputId="" name="#A7E690" type="basicType" outId="review_controller" value="java.lang.String" id="review_controller"/>
+<dataHolder inputId="" name="#9BCAFA" type="basicType" outId="review_manager" value="java.lang.String" id="review_manager"/>
+</form>

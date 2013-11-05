@@ -1,0 +1,102 @@
+
+<form id="2101943568">
+<property name="subject" value=""/>
+<property name="name" value="FixOrder-taskform.form"/>
+<property name="displayMode" value="default"/>
+<property name="status" value="0"/>
+<field position="0" name=":decorator_0" type="HTMLLabel" id="1485751708">
+<property name="fieldRequired" value="false"/>
+<property name="groupWithPrevious" value="false"/>
+<property name="label" value=""/>
+<property name="inputBinding" value=""/>
+<property name="outputBinding" value=""/>
+<property name="htmlContent" value="quot;enquot;,quot;&lt;p&gt;&lt;strong&gt;Fix order details&lt;/strong&gt;&lt;/p&gt;  &lt;hr /&gt; &lt;p&gt;Please, review and enter all the required information.&lt;/p&gt;  &lt;p&gt;&amp;nbsp;&lt;/p&gt; quot;quot;esquot;,quot;&lt;p&gt;&lt;strong&gt;Fix order details&lt;/strong&gt;&lt;/p&gt;  &lt;hr /&gt; &lt;p&gt;Please, review and enter all the required information.&lt;/p&gt;  &lt;p&gt;&amp;nbsp;&lt;/p&gt; quot;"/>
+</field>
+<field position="1" name="po_header" type="Subform" id="1204036781">
+<property name="fieldRequired" value="false"/>
+<property name="groupWithPrevious" value="false"/>
+<property name="labelCSSClass" value=""/>
+<property name="labelCSSStyle" value=""/>
+<property name="label" value="quot;enquot;,quot;Purchase Order headerquot;quot;esquot;,quot;quot;"/>
+<property name="errorMessage" value="quot;enquot;,quot;quot;quot;esquot;,quot;quot;"/>
+<property name="title" value="quot;enquot;,quot;quot;quot;esquot;,quot;quot;"/>
+<property name="disabled" value="false"/>
+<property name="readonly" value="false"/>
+<property name="styleclass" value=""/>
+<property name="cssStyle" value=""/>
+<property name="inputBinding" value="po_in/header"/>
+<property name="outputBinding" value="po_out/header"/>
+<property name="defaultSubform" value="PurchaseHeader.form"/>
+</field>
+<field position="2" name="po_lines" type="MultipleSubform" id="1321409348">
+<property name="fieldRequired" value="false"/>
+<property name="groupWithPrevious" value="false"/>
+<property name="labelCSSClass" value=""/>
+<property name="labelCSSStyle" value=""/>
+<property name="label" value="quot;enquot;,quot;Purchase Order linesquot;quot;esquot;,quot;quot;"/>
+<property name="errorMessage" value="quot;enquot;,quot;quot;quot;esquot;,quot;quot;"/>
+<property name="title" value="quot;enquot;,quot;quot;quot;esquot;,quot;quot;"/>
+<property name="disabled" value="false"/>
+<property name="readonly" value="false"/>
+<property name="styleclass" value=""/>
+<property name="cssStyle" value="width:400px"/>
+<property name="inputBinding" value="po_in/lines"/>
+<property name="outputBinding" value="po_out/lines"/>
+<property name="defaultSubform" value="PurchaseLine.form"/>
+<property name="previewSubform" value="PurchaseLine.form"/>
+<property name="tableSubform" value="PurchaseLine.form"/>
+<property name="newItemText" value="quot;enquot;,quot;quot;quot;esquot;,quot;quot;"/>
+<property name="addItemText" value="quot;enquot;,quot;quot;quot;esquot;,quot;quot;"/>
+<property name="cancelItemText" value="quot;enquot;,quot;quot;quot;esquot;,quot;quot;"/>
+<property name="deleteItems" value="true"/>
+<property name="updateItems" value="true"/>
+<property name="visualizeItems" value="false"/>
+<property name="hideCreateItem" value="false"/>
+<property name="expanded" value="false"/>
+<property name="enableTableEnterData" value="true"/>
+</field>
+<field position="3" name="po_total" type="InputTextDouble" id="1313432337">
+<property name="fieldRequired" value="false"/>
+<property name="groupWithPrevious" value="false"/>
+<property name="labelCSSClass" value=""/>
+<property name="labelCSSStyle" value=""/>
+<property name="label" value="quot;enquot;,quot;Totalquot;quot;esquot;,quot;quot;"/>
+<property name="errorMessage" value="quot;enquot;,quot;quot;quot;esquot;,quot;quot;"/>
+<property name="title" value="quot;enquot;,quot;quot;quot;esquot;,quot;quot;"/>
+<property name="disabled" value="false"/>
+<property name="readonly" value="true"/>
+<property name="size" value="8"/>
+<property name="formula" value=""/>
+<property name="rangeFormula" value=""/>
+<property name="pattern" value=""/>
+<property name="styleclass" value=""/>
+<property name="cssStyle" value=""/>
+<property name="defaultValueFormula" value=""/>
+<property name="inputBinding" value="po_in/total"/>
+<property name="outputBinding" value="po_out/total"/>
+</field>
+<field position="4" name="po_description" type="InputTextArea" id="1854775219">
+<property name="fieldRequired" value="false"/>
+<property name="groupWithPrevious" value="false"/>
+<property name="height" value="3"/>
+<property name="labelCSSClass" value=""/>
+<property name="labelCSSStyle" value=""/>
+<property name="label" value="quot;enquot;,quot;Descriptionquot;quot;esquot;,quot;quot;"/>
+<property name="errorMessage" value="quot;enquot;,quot;quot;quot;esquot;,quot;quot;"/>
+<property name="title" value="quot;enquot;,quot;quot;quot;esquot;,quot;quot;"/>
+<property name="disabled" value="false"/>
+<property name="readonly" value="false"/>
+<property name="size" value="50"/>
+<property name="formula" value=""/>
+<property name="rangeFormula" value=""/>
+<property name="pattern" value=""/>
+<property name="styleclass" value=""/>
+<property name="cssStyle" value=""/>
+<property name="isHTML" value="false"/>
+<property name="hideContent" value="false"/>
+<property name="defaultValueFormula" value=""/>
+<property name="inputBinding" value="po_in/description"/>
+<property name="outputBinding" value="po_out/description"/>
+</field>
+<dataHolder inputId="po_in" name="#0000A0" type="dataModelerEntry" outId="po_out" value="org.jbpm.examples.purchases.PurchaseOrder" id="po"/>
+</form>

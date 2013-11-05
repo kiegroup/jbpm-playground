@@ -29,7 +29,7 @@
   <bpmn2:itemDefinition id="__E60BF108-9187-425A-B8FB-CEEC51D240C9_in_customer_emailInputItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__E60BF108-9187-425A-B8FB-CEEC51D240C9_in_customer_ageInputItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__16DA85B5-72EB-4AE0-B36C-0199FC853F9A_ReportInputItem" structureRef="String"/>
-  <bpmn2:process id="CustomersRelationship.customers" drools:packageName="org.jbpm" drools:version="1.0" name="Customer Relationships" isExecutable="true">
+  <bpmn2:process id="CustomersRelationship.customers" drools:packageName="org.jbpm" drools:version="1" name="Customer Relationships" isExecutable="true">
     <bpmn2:property id="customer_name" itemSubjectRef="_customer_nameItem"/>
     <bpmn2:property id="customer_lastname" itemSubjectRef="_customer_lastnameItem"/>
     <bpmn2:property id="customer_age" itemSubjectRef="_customer_ageItem"/>

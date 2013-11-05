@@ -10,3 +10,7 @@
 /evaluation-tests/target/
 *.tlog
 
+
+purchases/.pom.xml
+
+*.imports

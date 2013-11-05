@@ -1,0 +1,12 @@
+package org.jbpm.examples.purchases;
+
+rule "DecideAmount"
+	dialect "mvel"
+	ruleflow-group "decide-approval"
+	when
+		po : PurchaseOrder( total >= 10000 , requiresCFOApproval == null )
+	then
+		po.setRequiresCFOApproval( true );
+		update( po );
+		System.out.println("----> "+po.getRequiresCFOApproval());
+end
