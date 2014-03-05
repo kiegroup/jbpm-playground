@@ -2,14 +2,13 @@ package org.jbpm.simple.rest.client;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.manager.RuntimeEngine;
 import org.kie.api.runtime.process.ProcessInstance;
 import org.kie.api.task.TaskService;
-import org.kie.services.client.api.RemoteRestSessionFactory;
+import org.kie.services.client.api.RemoteRestRuntimeFactory;
 
 /**
  * This is a very simple Rest Client to test against a running
@@ -28,8 +27,8 @@ public class SimpleRestClient
         String user = "jbpm";
         String password = "jbpm6";
         
-        RemoteRestSessionFactory restSessionFactory 
-            = new RemoteRestSessionFactory(deploymentId, appUrl, user, password);
+        RemoteRestRuntimeFactory restSessionFactory 
+            = new RemoteRestRuntimeFactory(deploymentId, appUrl, user, password);
         RuntimeEngine engine = restSessionFactory.newRuntimeEngine();
         
         KieSession ksession = engine.getKieSession();
