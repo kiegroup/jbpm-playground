@@ -1,0 +1,114 @@
+
+<form id="1791160824">
+<property name="subject" value=""/>
+<property name="name" value="review-translation-taskform.form"/>
+<property name="displayMode" value="default"/>
+<property name="status" value="0"/>
+<field position="0" name=":decorator_0" type="HTMLLabel" id="1022487551">
+<property name="fieldRequired" value="false"/>
+<property name="groupWithPrevious" value="false"/>
+<property name="label" value=""/>
+<property name="readonly" value="false"/>
+<property name="inputBinding" value=""/>
+<property name="outputBinding" value=""/>
+<property name="htmlContent" value="quot;caquot;,quot;&lt;h2&gt;&lt;ins&gt;Incoming data&lt;/ins&gt;&lt;/h2&gt; quot;quot;dequot;,quot;&lt;h2&gt;&lt;ins&gt;Incoming data&lt;/ins&gt;&lt;/h2&gt; quot;quot;enquot;,quot;&lt;h2&gt;&lt;ins&gt;Incoming data&lt;/ins&gt;&lt;/h2&gt; quot;quot;esquot;,quot;&lt;h2&gt;&lt;ins&gt;Incoming data&lt;/ins&gt;&lt;/h2&gt; quot;quot;frquot;,quot;&lt;h2&gt;&lt;ins&gt;Incoming data&lt;/ins&gt;&lt;/h2&gt; quot;quot;jaquot;,quot;&lt;h2&gt;&lt;ins&gt;Incoming data&lt;/ins&gt;&lt;/h2&gt; quot;quot;ptquot;,quot;&lt;h2&gt;&lt;ins&gt;Incoming data&lt;/ins&gt;&lt;/h2&gt; quot;quot;zhquot;,quot;&lt;h2&gt;&lt;ins&gt;Incoming data&lt;/ins&gt;&lt;/h2&gt; quot;"/>
+<property name="fieldClass" value="HTMLlabel"/>
+</field>
+<field position="1" name="original_document" type="Document" id="525764591">
+<property name="fieldRequired" value="false"/>
+<property name="height" value=""/>
+<property name="labelCSSClass" value=""/>
+<property name="labelCSSStyle" value=""/>
+<property name="label" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;Incoming document:quot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
+<property name="errorMessage" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;quot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
+<property name="title" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;quot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
+<property name="readonly" value="true"/>
+<property name="size" value=""/>
+<property name="formula" value=""/>
+<property name="rangeFormula" value=""/>
+<property name="pattern" value=""/>
+<property name="styleclass" value=""/>
+<property name="cssStyle" value=""/>
+<property name="inputBinding" value="in_original"/>
+<property name="outputBinding" value=""/>
+<property name="fieldClass" value="org.jbpm.document.Document"/>
+</field>
+<field position="2" name="translated_document" type="Document" id="211281435">
+<property name="fieldRequired" value="false"/>
+<property name="height" value=""/>
+<property name="labelCSSClass" value=""/>
+<property name="labelCSSStyle" value=""/>
+<property name="label" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;Current translation:quot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
+<property name="errorMessage" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;quot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
+<property name="title" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;quot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
+<property name="readonly" value="true"/>
+<property name="size" value=""/>
+<property name="formula" value=""/>
+<property name="rangeFormula" value=""/>
+<property name="pattern" value=""/>
+<property name="styleclass" value=""/>
+<property name="cssStyle" value=""/>
+<property name="inputBinding" value="in_translation"/>
+<property name="outputBinding" value=""/>
+<property name="fieldClass" value="org.jbpm.document.Document"/>
+</field>
+<field position="3" name=":decorator_1" type="HTMLLabel" id="1166692512">
+<property name="fieldRequired" value="false"/>
+<property name="groupWithPrevious" value="false"/>
+<property name="label" value=""/>
+<property name="readonly" value="false"/>
+<property name="inputBinding" value=""/>
+<property name="outputBinding" value=""/>
+<property name="htmlContent" value="quot;caquot;,quot;&lt;h2&gt;&amp;nbsp;&lt;/h2&gt;  &lt;h2&gt;&lt;ins&gt;Outgoing data&lt;/ins&gt;&lt;/h2&gt; quot;quot;dequot;,quot;&lt;h2&gt;&amp;nbsp;&lt;/h2&gt;  &lt;h2&gt;&lt;ins&gt;Outgoing data&lt;/ins&gt;&lt;/h2&gt; quot;quot;enquot;,quot;&lt;h2&gt;&amp;nbsp;&lt;/h2&gt;  &lt;h2&gt;&lt;ins&gt;Outgoing data&lt;/ins&gt;&lt;/h2&gt; quot;quot;esquot;,quot;&lt;h2&gt;&amp;nbsp;&lt;/h2&gt;  &lt;h2&gt;&lt;ins&gt;Outgoing data&lt;/ins&gt;&lt;/h2&gt; quot;quot;frquot;,quot;&lt;h2&gt;&amp;nbsp;&lt;/h2&gt;  &lt;h2&gt;&lt;ins&gt;Outgoing data&lt;/ins&gt;&lt;/h2&gt; quot;quot;jaquot;,quot;&lt;h2&gt;&amp;nbsp;&lt;/h2&gt;  &lt;h2&gt;&lt;ins&gt;Outgoing data&lt;/ins&gt;&lt;/h2&gt; quot;quot;ptquot;,quot;&lt;h2&gt;&amp;nbsp;&lt;/h2&gt;  &lt;h2&gt;&lt;ins&gt;Outgoing data&lt;/ins&gt;&lt;/h2&gt; quot;quot;zhquot;,quot;&lt;h2&gt;&amp;nbsp;&lt;/h2&gt;  &lt;h2&gt;&lt;ins&gt;Outgoing data&lt;/ins&gt;&lt;/h2&gt; quot;"/>
+<property name="fieldClass" value="HTMLlabel"/>
+</field>
+<field position="4" name="comments" type="InputTextArea" id="437003155">
+<property name="fieldRequired" value="false"/>
+<property name="groupWithPrevious" value="false"/>
+<property name="height" value="10"/>
+<property name="labelCSSClass" value=""/>
+<property name="labelCSSStyle" value=""/>
+<property name="label" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;Check the comments and add yours if needed:quot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
+<property name="errorMessage" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;quot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
+<property name="title" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;quot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
+<property name="readonly" value="false"/>
+<property name="size" value=""/>
+<property name="formula" value=""/>
+<property name="rangeFormula" value=""/>
+<property name="pattern" value=""/>
+<property name="styleclass" value=""/>
+<property name="cssStyle" value=""/>
+<property name="isHTML" value="false"/>
+<property name="hideContent" value="false"/>
+<property name="defaultValueFormula" value=""/>
+<property name="inputBinding" value="in_comments"/>
+<property name="outputBinding" value="out_comments"/>
+<property name="fieldClass" value="java.lang.String"/>
+</field>
+<field position="5" name="status" type="InputText" id="47945998">
+<property name="fieldRequired" value="true"/>
+<property name="groupWithPrevious" value="false"/>
+<property name="labelCSSClass" value=""/>
+<property name="labelCSSStyle" value=""/>
+<property name="label" value="quot;SSClassquot;,quot;quot;quot;SSStylequot;,quot;quot;quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;Status:quot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
+<property name="errorMessage" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;quot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
+<property name="title" value="quot;caquot;,quot;quot;quot;dequot;,quot;quot;quot;enquot;,quot;quot;quot;esquot;,quot;quot;quot;frquot;,quot;quot;quot;jaquot;,quot;quot;quot;ptquot;,quot;quot;quot;zhquot;,quot;quot;"/>
+<property name="readonly" value="false"/>
+<property name="size" value=""/>
+<property name="formula" value=""/>
+<property name="rangeFormula" value="{APPROVED,Approve;TRANSLATE,Reject}"/>
+<property name="pattern" value=""/>
+<property name="styleclass" value=""/>
+<property name="cssStyle" value=""/>
+<property name="isHTML" value="false"/>
+<property name="hideContent" value="false"/>
+<property name="defaultValueFormula" value=""/>
+<property name="inputBinding" value=""/>
+<property name="outputBinding" value="out_status"/>
+<property name="fieldClass" value="java.lang.String"/>
+</field>
+<dataHolder inputId="in_comments" name="#B29FE4" type="basicType" outId="out_comments" value="java.lang.String" id="comments"/>
+<dataHolder inputId="in_original" name="#0000A0" type="basicType" outId="" value="org.jbpm.document.Document" id="original_document"/>
+<dataHolder inputId="" name="#A7E690" type="basicType" outId="out_status" value="java.lang.String" id="status"/>
+<dataHolder inputId="in_translation" name="#FF54A7" type="basicType" outId="" value="org.jbpm.document.Document" id="translated_document"/>
+</form>
