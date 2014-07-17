@@ -1,0 +1,12 @@
+# build directoriees
+/target/
+/bin/
+
+# eclipse, etc
+/.project
+/.classpath
+/.settings/
+/*.ipr
+/*.iws
+/*.iml
+

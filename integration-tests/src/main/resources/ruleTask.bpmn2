@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" 
+                   xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" 
+                   xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" 
+                   xmlns:di="http://www.omg.org/spec/DD/20100524/DI" 
+                   xmlns:drools="http://www.jboss.org/drools" 
+                   xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd" 
+                   id="Definitions_1" 
+                   targetNamespace="http://www.jboss.org/drools">
+  <import importType="http://www.java.com/javaTypes" location="org.kie.tests.wb.base.test.objects.Request" namespace="http://org.kie.tests.wb.base.test.objects"/>
+  <import importType="http://www.java.com/javaTypes" location="org.kie.tests.wb.base.test.objects.Person" namespace="http://org.kie.tests.wb.base.test.objects"/>
+
+  <itemDefinition id="_requestItem" structureRef="org.kie.tests.wb.base.test.objects.Request" />
+  <itemDefinition id="_personItem" structureRef="org.kie.tests.wb.base.test.objects.Person" />
+  <itemDefinition id="_stringItem" structureRef="java.lang.String" />
+    
+  <process id="org.test.kjar.RuleTask" drools:version="1" drools:packageName="com.bpms.flood" drools:adHoc="false" 
+                 name="RuleTask" isExecutable="true">
+  
+    <!-- process variables -->
+    <property id="request" itemSubjectRef="_requestItem"/>
+    <property id="processedRequest" itemSubjectRef="_requestItem"/>
+    <property id="requestReason" itemSubjectRef="_stringItem" />
+    <property id="person" itemSubjectRef="_personItem"/>
+  
+    <startEvent id="_1" name="Start Event 1" />
+    <sequenceFlow id="_1-_2" sourceRef="_1" targetRef="_2"/>
+    
+    <businessRuleTask id="_2" drools:ruleFlowGroup="Validation" name="Rule Task" implementation="##unspecified">
+      <ioSpecification>
+        <dataInput id="_ruleTaskInput-request" name="request" itemSubjectRef="_requestItem"/>
+        <dataInput id="_ruleTaskInput-person" name="person" itemSubjectRef="_personItem"/>
+        <dataOutput id="_ruleTaskOutput-request" name="request" itemSubjectRef="_requestItem"/>
+        <inputSet id="_inputSet">
+          <dataInputRefs>_ruleTaskInput-request</dataInputRefs>
+          <dataInputRefs>_ruleTaskInput-person</dataInputRefs>
+          <outputSetRefs>_outputSet</outputSetRefs>
+        </inputSet>
+        <outputSet id="_outputSet">
+          <dataOutputRefs>_ruleTaskOutput-request</dataOutputRefs>
+          <inputSetRefs>_inputSet</inputSetRefs>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <sourceRef>request</sourceRef>
+        <targetRef>_ruleTaskInput-request</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>person</sourceRef>
+        <targetRef>_ruleTaskInput-person</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_ruleTaskOutput-request</sourceRef>
+        <targetRef>processedRequest</targetRef>
+      </dataOutputAssociation>
+    </businessRuleTask>
+    <sequenceFlow id="_2-_3" sourceRef="_2" targetRef="_3"/>
+    
+    <scriptTask id="_3" name="Script" >
+      <script>kcontext.setVariable( "requestReason", processedRequest.getInvalidReason() );</script>
+    </scriptTask>
+    <sequenceFlow id="_3-_4" sourceRef="_3" targetRef="_4" />
+    
+    <endEvent id="_4" name="End" />
+    
+  </process>
+</definitions>

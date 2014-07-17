@@ -1,3 +1,4 @@
+# target/build directories
 /jbpm-simple-rest-client/target/
 /customers-relationships/target/
 /customers-services-workitems/target/
@@ -8,9 +9,15 @@
 /human-resources/target/
 /human-resources-tests/target/
 /evaluation-tests/target/
+
+# other
+purchases/.pom.xml
+*.imports
+
+# test files
 *.tlog
 
-
-purchases/.pom.xml
-
-*.imports
+# eclipse files.. 
+/.project
+/.classpath
+/.settings/

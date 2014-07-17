@@ -1,0 +1,12 @@
+package org.jbpm.evaluation.customer;
+
+import org.kie.tests.wb.base.test.objects.Request;
+import org.kie.tests.wb.base.test.objects.Person;
+
+rule "Check Amount Customer" ruleflow-group "Validation"
+    when
+        r: Request();
+        Person(id == r.personId, r.amount < 1000);
+    then
+        r.setInvalid("Poor customer");
+end
