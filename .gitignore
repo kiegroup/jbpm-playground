@@ -12,7 +12,6 @@
 
 # other
 purchases/.pom.xml
-*.imports
 
 # test files
 *.tlog
