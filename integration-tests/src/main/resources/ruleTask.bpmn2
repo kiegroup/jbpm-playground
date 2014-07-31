@@ -8,11 +8,11 @@
                    xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd" 
                    id="Definitions_1" 
                    targetNamespace="http://www.jboss.org/drools">
-  <import importType="http://www.java.com/javaTypes" location="org.kie.tests.wb.base.test.objects.Request" namespace="http://org.kie.tests.wb.base.test.objects"/>
-  <import importType="http://www.java.com/javaTypes" location="org.kie.tests.wb.base.test.objects.Person" namespace="http://org.kie.tests.wb.base.test.objects"/>
+  <import importType="http://www.java.com/javaTypes" location="org.kie.tests.Request" namespace="http://org.kie.tests"/>
+  <import importType="http://www.java.com/javaTypes" location="org.kie.tests.Person" namespace="http://org.kie.tests"/>
 
-  <itemDefinition id="_requestItem" structureRef="org.kie.tests.wb.base.test.objects.Request" />
-  <itemDefinition id="_personItem" structureRef="org.kie.tests.wb.base.test.objects.Person" />
+  <itemDefinition id="_requestItem" structureRef="org.kie.tests.Request" />
+  <itemDefinition id="_personItem" structureRef="org.kie.tests.Person" />
   <itemDefinition id="_stringItem" structureRef="java.lang.String" />
     
   <process id="org.test.kjar.RuleTask" drools:version="1" drools:packageName="com.bpms.flood" drools:adHoc="false" 

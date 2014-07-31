@@ -1,7 +1,7 @@
 package org.jbpm.evaluation.customer;
 
-import org.kie.tests.wb.base.test.objects.Request;
-import org.kie.tests.wb.base.test.objects.Person;
+import org.kie.tests.Request;
+import org.kie.tests.Person;
 
 rule "Check Amount Customer" ruleflow-group "Validation"
     when

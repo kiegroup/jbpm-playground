@@ -1,4 +1,4 @@
-package org.kie.tests.wb.base.test.objects;
+package org.kie.tests;
 
 import java.io.Serializable;
 
