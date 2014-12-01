@@ -1,25 +1,27 @@
 package org.jbpm.customer.relationships.tests;
 
 
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
+import java.util.Collections;
+import java.util.List;
+
+import javax.annotation.PreDestroy;
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.BeanManager;
 import javax.inject.Inject;
-import javax.naming.InitialContext;
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.PersistenceUnit;
-import javax.transaction.Status;
-import javax.transaction.UserTransaction;
+
+import org.jbpm.process.audit.AbstractAuditLogger;
 import org.jbpm.runtime.manager.impl.RuntimeEnvironmentBuilder;
-import org.jbpm.runtime.manager.impl.cdi.InjectableRegisterableItemsFactory;
+import org.jbpm.runtime.manager.impl.jpa.EntityManagerFactoryManager;
+import org.jbpm.services.api.DeploymentService;
+import org.jbpm.services.cdi.Kjar;
+import org.jbpm.services.cdi.impl.manager.InjectableRegisterableItemsFactory;
+import org.jbpm.services.task.audit.JPATaskLifeCycleEventListener;
 import org.jbpm.services.task.identity.JBossUserGroupCallbackImpl;
 import org.kie.api.io.ResourceType;
+import org.kie.api.task.TaskLifeCycleEventListener;
+import org.kie.internal.identity.IdentityProvider;
 import org.kie.internal.io.ResourceFactory;
 import org.kie.internal.runtime.manager.RuntimeEnvironment;
 import org.kie.internal.runtime.manager.cdi.qualifier.PerProcessInstance;
@@ -46,6 +48,10 @@ public class EnvironmentProducer {
     private BeanManager beanManager;
     private EntityManagerFactory emf;
     
+    @Inject
+    @Kjar
+    private DeploymentService deploymentService;
+    
     @Produces
     @Singleton
     @PerRequest
@@ -55,7 +61,7 @@ public class EnvironmentProducer {
         RuntimeEnvironment environment = RuntimeEnvironmentBuilder.getDefault()
                 .entityManagerFactory(emf)
                 .userGroupCallback(produceSelectedUserGroupCallback())
-                .registerableItemsFactory(InjectableRegisterableItemsFactory.getFactory(beanManager, null))
+                .registerableItemsFactory(InjectableRegisterableItemsFactory.getFactory(beanManager, (AbstractAuditLogger)null))
                 .addAsset(ResourceFactory.newClassPathResource("customers.bpmn2"), ResourceType.BPMN2)
                 .get();
         return environment;
@@ -65,60 +71,48 @@ public class EnvironmentProducer {
     public UserGroupCallback produceSelectedUserGroupCallback() {
         return new JBossUserGroupCallbackImpl("classpath:/usergroups.properties");
     }
+
     
-    @PersistenceUnit(unitName = "org.jbpm.sample")
-    @ApplicationScoped
     @Produces
-    public EntityManagerFactory getEntityManagerFactory() {
+    public EntityManagerFactory produceEntityManagerFactory() {
         if (this.emf == null) {
-            this.emf = Persistence.createEntityManagerFactory("org.jbpm.sample");
+            this.emf = EntityManagerFactoryManager.get().getOrCreate("org.jbpm.sample"); 
         }
+        
         return this.emf;
     }
     
-    @Produces
-    @ApplicationScoped
-    public EntityManager getEntityManager() {
-        final EntityManager em = getEntityManagerFactory().createEntityManager();
-        EntityManager emProxy = (EntityManager) 
-                Proxy.newProxyInstance(this.getClass().getClassLoader(), new Class[]{EntityManager.class}, new EmInvocationHandler(em));
-        return emProxy;
+    @PreDestroy
+    public void doCleanUp() {
+    	EntityManagerFactoryManager.get().clear();
     }
 
-    @ApplicationScoped
-    public void commitAndClose(@Disposes EntityManager em) {
-        try {
-            
-            em.close();
-        } catch (Exception e) {
-
-        }
+    
+    @Produces
+    public DeploymentService produceKjarDeployService() {
+    	return deploymentService;
     }
     
-    private class EmInvocationHandler implements InvocationHandler {
-
-        private EntityManager delegate;
-        
-        EmInvocationHandler(EntityManager em) {
-            this.delegate = em;
-        }
-        
-        public Object invoke(Object proxy, Method method, Object[] args)
-                throws Throwable {
-            joinTransactionIfNeeded();
-            return method.invoke(delegate, args);
-        }
-        
-        private void joinTransactionIfNeeded() {
-            try {
-                UserTransaction ut = InitialContext.doLookup("java:comp/UserTransaction");
-                if (ut.getStatus() == Status.STATUS_ACTIVE) {
-                    delegate.joinTransaction();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        
+    @Produces
+    public TaskLifeCycleEventListener produceTaskAuditLogger() {
+    	return new JPATaskLifeCycleEventListener(true);
+    }
+    
+    @Produces
+    public IdentityProvider produceProvider() {
+    	return new IdentityProvider() {
+			
+			public boolean hasRole(String role) {
+				return false;
+			}
+			
+			public List<String> getRoles() {
+				return Collections.emptyList();
+			}
+			
+			public String getName() {
+				return "salaboy";
+			}
+		};
     }
 }

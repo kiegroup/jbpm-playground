@@ -5,15 +5,20 @@
  */
 package org.jbpm.customer.relationships.tests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.jbpm.customer.services.AddCustomerCommentsWorkItemHandler;
 import org.jbpm.customer.services.CreateCustomerWorkItemHandler;
 import org.jbpm.customer.services.ManagersReportWorkItemHandler;
 import org.jbpm.services.task.utils.ContentMarshallerHelper;
 import org.jbpm.test.JbpmJUnitBaseTestCase;
-import static org.junit.Assert.*;
 import org.junit.Test;
 import org.kie.api.io.ResourceType;
 import org.kie.api.runtime.KieSession;

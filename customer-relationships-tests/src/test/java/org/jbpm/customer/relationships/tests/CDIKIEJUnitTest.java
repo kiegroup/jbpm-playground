@@ -1,11 +1,17 @@
 package org.jbpm.customer.relationships.tests;
 
-import bitronix.tm.resource.jdbc.PoolingDataSource;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
@@ -16,10 +22,7 @@ import org.jbpm.customer.services.AddCustomerCommentsWorkItemHandler;
 import org.jbpm.customer.services.CreateCustomerWorkItemHandler;
 import org.jbpm.customer.services.ManagersReportWorkItemHandler;
 import org.jbpm.services.task.utils.ContentMarshallerHelper;
-import org.junit.After;
 import org.junit.AfterClass;
-import static org.junit.Assert.*;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,6 +36,8 @@ import org.kie.api.task.model.Task;
 import org.kie.api.task.model.TaskSummary;
 import org.kie.internal.runtime.manager.cdi.qualifier.Singleton;
 import org.kie.internal.runtime.manager.context.EmptyContext;
+
+import bitronix.tm.resource.jdbc.PoolingDataSource;
 
 /**
  *

@@ -32,14 +32,14 @@
                 <groupId>org.drools</groupId>
                 <artifactId>drools-bom</artifactId>
                 <type>pom</type>
-                <version>6.1.0-SNAPSHOT</version>
+                <version>6.3.0-SNAPSHOT</version>
                 <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.jbpm</groupId>
                 <artifactId>jbpm-bom</artifactId>
                 <type>pom</type>
-                <version>6.1.0-SNAPSHOT</version>
+                <version>6.3.0-SNAPSHOT</version>
                 <scope>import</scope>
             </dependency>
             <dependency>
@@ -121,6 +121,16 @@
         </dependency>
         <dependency>
             <groupId>org.jbpm</groupId>
+            <artifactId>jbpm-human-task-jpa</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jbpm</groupId>
+            <artifactId>jbpm-services-cdi</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jbpm</groupId>
             <artifactId>jbpm-audit</artifactId>
             <scope>test</scope>
             <exclusions>
@@ -131,18 +141,6 @@
             </exclusions>
         </dependency>
         
-        <dependency>
-            <groupId>org.jbpm</groupId>
-            <artifactId>jbpm-shared-services</artifactId>
-            <classifier>btm</classifier>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <artifactId>slf4j-api</artifactId>
-                    <groupId>org.slf4j</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
         <dependency>
             <groupId>org.jbpm</groupId>
             <artifactId>jbpm-test</artifactId>
@@ -165,12 +163,6 @@
                     <groupId>junit</groupId>
                 </exclusion>
             </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.solder</groupId>
-            <artifactId>solder-api</artifactId>
-            <version>3.2.1.Final</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -226,18 +218,6 @@
             <version>${btm.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.jboss.seam.transaction</groupId>
-            <artifactId>seam-transaction</artifactId>
-            <version>${seam.tx.version}</version>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <artifactId>solder-api</artifactId>
-                    <groupId>org.jboss.solder</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
         
         <!-- test: arquillian -->
         <dependency>
@@ -257,7 +237,39 @@
             <version>4.8.1</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+          <groupId>org.jboss.spec.javax.jms</groupId>
+          <artifactId>jboss-jms-api_1.1_spec</artifactId>
+          <version>1.0.0.Final</version>
+          <scope>test</scope>
+        </dependency>
     </dependencies>
+    
+    <build>
+      <plugins>
+      <plugin>
+        <!-- we need to fork always as we have mixture of both arquillian tests and regular
+             and to avoid clashing between them as both need to setup data source and bound it to JNDI -->
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <forkMode>always</forkMode>          
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <configuration>
+          <filesets>
+            <fileset>
+              <directory>${basedir}</directory>
+              <includes>
+                <include>btm*.tlog</include>
+              </includes>
+            </fileset>
+          </filesets>
+        </configuration>
+      </plugin>
+      </plugins>
+    </build>
     
     <repositories>
         <repository>
