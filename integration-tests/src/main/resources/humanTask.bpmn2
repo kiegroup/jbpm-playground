@@ -16,17 +16,17 @@
   <itemDefinition id="_approval_translatedDocumentItem" structureRef="String" />
   <itemDefinition id="_approval_reviewCommentItem" structureRef="String" />
 
-  <itemDefinition id="_B4912911-1965-4D1F-9532-81580D8200EE-approval_documentItem" structureRef="String" />
-  <itemDefinition id="_B4912911-1965-4D1F-9532-81580D8200EE-approval_translatedDocumentItem" structureRef="String" />
-  <itemDefinition id="_B4912911-1965-4D1F-9532-81580D8200EE-approval_reviewCommentItem" structureRef="String" />
+  <itemDefinition id="_2-task-approval_documentItem" structureRef="String" />
+  <itemDefinition id="_2-task-approval_translatedDocumentItem" structureRef="String" />
+  <itemDefinition id="_2-task-approval_reviewCommentItem" structureRef="String" />
 
-  <itemDefinition id="_04D27583-5419-42C8-A0B5-F85E5E35BAFC-approval_documentItem" structureRef="String" />
-  <itemDefinition id="_04D27583-5419-42C8-A0B5-F85E5E35BAFC-approval_translatedDocumentItem" structureRef="String" />
-  <itemDefinition id="_04D27583-5419-42C8-A0B5-F85E5E35BAFC-approval_reviewCommentItem" structureRef="String" />
+  <itemDefinition id="_4-task-approval_documentItem" structureRef="String" />
+  <itemDefinition id="_4-task-approval_translatedDocumentItem" structureRef="String" />
+  <itemDefinition id="_4-task-approval_reviewCommentItem" structureRef="String" />
 
-  <itemDefinition id="_406504CA-672D-4D8D-A344-4817683B167F-approval_documentItem" structureRef="String" />
-  <itemDefinition id="_406504CA-672D-4D8D-A344-4817683B167F-approval_translatedDocumentItem" structureRef="String" />
-  <itemDefinition id="_406504CA-672D-4D8D-A344-4817683B167F-approval_reviewCommentItem" structureRef="String" />
+  <itemDefinition id="_5-task-approval_documentItem" structureRef="String" />
+  <itemDefinition id="_5-task-approval_translatedDocumentItem" structureRef="String" />
+  <itemDefinition id="_5-task-approval_reviewCommentItem" structureRef="String" />
 
   <process processType="Private" isExecutable="true" id="org.test.kjar.writedocument" name="humanTaskSample" tns:packageName="defaultPackage" tns:version="1">
 
@@ -36,45 +36,45 @@
     <property id="approval_reviewComment" itemSubjectRef="_approval_reviewCommentItem"/>
 
     <!-- nodes -->
-    <startEvent id="_2E8E392C-31A0-4E34-8310-05EADDC4C2B5" name="Start" />
-    <userTask id="_B4912911-1965-4D1F-9532-81580D8200EE" name="Write a Document" >
+    <startEvent id="_1-start" name="Start" />
+    <userTask id="_2-task" name="Write a Document" >
       <ioSpecification>
-        <dataInput id="_B4912911-1965-4D1F-9532-81580D8200EE_CommentInput" name="Comment" />
-        <dataInput id="_B4912911-1965-4D1F-9532-81580D8200EE_TaskNameInput" name="TaskName" />
-        <dataInput id="_B4912911-1965-4D1F-9532-81580D8200EE_PriorityInput" name="Priority" />
-        <dataOutput id="_B4912911-1965-4D1F-9532-81580D8200EE_ResultOutput" name="Result" />
+        <dataInput id="_2-task_CommentInput" name="Comment" />
+        <dataInput id="_2-task_TaskNameInput" name="TaskName" />
+        <dataInput id="_2-task_PriorityInput" name="Priority" />
+        <dataOutput id="_2-task_ResultOutput" name="Result" />
         <inputSet>
-          <dataInputRefs>_B4912911-1965-4D1F-9532-81580D8200EE_CommentInput</dataInputRefs>
-          <dataInputRefs>_B4912911-1965-4D1F-9532-81580D8200EE_TaskNameInput</dataInputRefs>
-          <dataInputRefs>_B4912911-1965-4D1F-9532-81580D8200EE_PriorityInput</dataInputRefs>
+          <dataInputRefs>_2-task_CommentInput</dataInputRefs>
+          <dataInputRefs>_2-task_TaskNameInput</dataInputRefs>
+          <dataInputRefs>_2-task_PriorityInput</dataInputRefs>
         </inputSet>
         <outputSet>
-          <dataOutputRefs>_B4912911-1965-4D1F-9532-81580D8200EE_ResultOutput</dataOutputRefs>
+          <dataOutputRefs>_2-task_ResultOutput</dataOutputRefs>
         </outputSet>
       </ioSpecification>
       <dataInputAssociation>
-        <targetRef>_B4912911-1965-4D1F-9532-81580D8200EE_CommentInput</targetRef>
+        <targetRef>_2-task_CommentInput</targetRef>
         <assignment>
           <from xsi:type="tFormalExpression">Write a Document</from>
-          <to xsi:type="tFormalExpression">_B4912911-1965-4D1F-9532-81580D8200EE_CommentInput</to>
+          <to xsi:type="tFormalExpression">_2-task_CommentInput</to>
         </assignment>
       </dataInputAssociation>
       <dataInputAssociation>
-        <targetRef>_B4912911-1965-4D1F-9532-81580D8200EE_TaskNameInput</targetRef>
+        <targetRef>_2-task_TaskNameInput</targetRef>
         <assignment>
           <from xsi:type="tFormalExpression">Write a Document</from>
-          <to xsi:type="tFormalExpression">_B4912911-1965-4D1F-9532-81580D8200EE_TaskNameInput</to>
+          <to xsi:type="tFormalExpression">_2-task_TaskNameInput</to>
         </assignment>
       </dataInputAssociation>
       <dataInputAssociation>
-        <targetRef>_B4912911-1965-4D1F-9532-81580D8200EE_PriorityInput</targetRef>
+        <targetRef>_2-task_PriorityInput</targetRef>
         <assignment>
           <from xsi:type="tFormalExpression">null</from>
-          <to xsi:type="tFormalExpression">_B4912911-1965-4D1F-9532-81580D8200EE_PriorityInput</to>
+          <to xsi:type="tFormalExpression">_2-task_PriorityInput</to>
         </assignment>
       </dataInputAssociation>
       <dataOutputAssociation>
-        <sourceRef>_B4912911-1965-4D1F-9532-81580D8200EE_ResultOutput</sourceRef>
+        <sourceRef>_2-task_ResultOutput</sourceRef>
         <targetRef>approval_document</targetRef>
       </dataOutputAssociation>
       <potentialOwner>
@@ -83,27 +83,27 @@
         </resourceAssignmentExpression>
       </potentialOwner>
     </userTask>
-    <parallelGateway id="_0FA84C68-FDF4-4932-B02E-CF7BEACE4405" name="Review and Translate" gatewayDirection="Diverging" />
-    <userTask id="_04D27583-5419-42C8-A0B5-F85E5E35BAFC" name="Translate Document" >
+    <parallelGateway id="_3-gateway" name="Review and Translate" gatewayDirection="Diverging" />
+    <userTask id="_4-task" name="Translate Document" >
       <ioSpecification>
-        <dataInput id="_04D27583-5419-42C8-A0B5-F85E5E35BAFC_TaskNameInput" name="TaskName" />
-        <dataOutput id="_04D27583-5419-42C8-A0B5-F85E5E35BAFC_ResultOutput" name="Result" />
+        <dataInput id="_4-task_TaskNameInput" name="TaskName" />
+        <dataOutput id="_4-task_ResultOutput" name="Result" />
         <inputSet>
-          <dataInputRefs>_04D27583-5419-42C8-A0B5-F85E5E35BAFC_TaskNameInput</dataInputRefs>
+          <dataInputRefs>_4-task_TaskNameInput</dataInputRefs>
         </inputSet>
         <outputSet>
-          <dataOutputRefs>_04D27583-5419-42C8-A0B5-F85E5E35BAFC_ResultOutput</dataOutputRefs>
+          <dataOutputRefs>_4-task_ResultOutput</dataOutputRefs>
         </outputSet>
       </ioSpecification>
       <dataInputAssociation>
-        <targetRef>_04D27583-5419-42C8-A0B5-F85E5E35BAFC_TaskNameInput</targetRef>
+        <targetRef>_4-task_TaskNameInput</targetRef>
         <assignment>
           <from xsi:type="tFormalExpression">Translate Document</from>
-          <to xsi:type="tFormalExpression">_04D27583-5419-42C8-A0B5-F85E5E35BAFC_TaskNameInput</to>
+          <to xsi:type="tFormalExpression">_4-task_TaskNameInput</to>
         </assignment>
       </dataInputAssociation>
       <dataOutputAssociation>
-        <sourceRef>_04D27583-5419-42C8-A0B5-F85E5E35BAFC_ResultOutput</sourceRef>
+        <sourceRef>_4-task_ResultOutput</sourceRef>
         <targetRef>approval_translatedDocument</targetRef>
       </dataOutputAssociation>
       <potentialOwner>
@@ -112,117 +112,52 @@
         </resourceAssignmentExpression>
       </potentialOwner>
     </userTask>
-    <userTask id="_406504CA-672D-4D8D-A344-4817683B167F" name="Review Document" >
+    <userTask id="_5-task" name="Review Document" >
       <ioSpecification>
-        <dataInput id="_406504CA-672D-4D8D-A344-4817683B167F_TaskNameInput" name="TaskName" />
-        <dataOutput id="_406504CA-672D-4D8D-A344-4817683B167F_ResultOutput" name="Result" />
+        <dataInput id="_5-task_TaskNameInput" name="TaskName" />
+        <dataOutput id="_5-task_ResultOutput" name="Result" />
         <inputSet>
-          <dataInputRefs>_406504CA-672D-4D8D-A344-4817683B167F_TaskNameInput</dataInputRefs>
+          <dataInputRefs>_5-task_TaskNameInput</dataInputRefs>
         </inputSet>
         <outputSet>
-          <dataOutputRefs>_406504CA-672D-4D8D-A344-4817683B167F_ResultOutput</dataOutputRefs>
+          <dataOutputRefs>_5-task_ResultOutput</dataOutputRefs>
         </outputSet>
       </ioSpecification>
       <dataInputAssociation>
-        <targetRef>_406504CA-672D-4D8D-A344-4817683B167F_TaskNameInput</targetRef>
+        <targetRef>_5-task_TaskNameInput</targetRef>
         <assignment>
           <from xsi:type="tFormalExpression">Review Document</from>
-          <to xsi:type="tFormalExpression">_406504CA-672D-4D8D-A344-4817683B167F_TaskNameInput</to>
+          <to xsi:type="tFormalExpression">_5-task_TaskNameInput</to>
         </assignment>
       </dataInputAssociation>
       <dataOutputAssociation>
-        <sourceRef>_406504CA-672D-4D8D-A344-4817683B167F_ResultOutput</sourceRef>
+        <sourceRef>_5-task_ResultOutput</sourceRef>
         <targetRef>approval_reviewComment</targetRef>
       </dataOutputAssociation>
       <potentialOwner>
         <resourceAssignmentExpression>
-          <formalExpression>reviewer</formalExpression>
+          <formalExpression>mary</formalExpression>
         </resourceAssignmentExpression>
       </potentialOwner>
     </userTask>
-    <parallelGateway id="_4EC3DFFF-7756-4ADC-9FDB-7A1793ED5538" name="Reviewed and Translated" gatewayDirection="Converging" />
-    <endEvent id="_F9A29108-44D7-42AB-9A2D-F31EA512DC11" name="End" >
+    <parallelGateway id="_6-gateway" name="Reviewed and Translated" gatewayDirection="Converging" />
+    <endEvent id="_8-end" name="End" >
         <terminateEventDefinition />
     </endEvent>
-    <scriptTask id="_E524A570-E18B-4659-92A3-B5C454BB6D1B" name="Report" scriptFormat="http://www.java.com/java" >
+    <scriptTask id="_7-script" name="Report" scriptFormat="http://www.java.com/java" >
       <script>System.out.println("### REPORT - ");System.out.println("### \t");System.out.println("### \t approval_document: "+approval_document);System.out.println("### \t approval_translatedDocument: "+approval_translatedDocument);System.out.println("### \t approval_reviewComment: "+approval_reviewComment);</script>
     </scriptTask>
 
     <!-- connections -->
-    <sequenceFlow id="_2E8E392C-31A0-4E34-8310-05EADDC4C2B5-_B4912911-1965-4D1F-9532-81580D8200EE" sourceRef="_2E8E392C-31A0-4E34-8310-05EADDC4C2B5" targetRef="_B4912911-1965-4D1F-9532-81580D8200EE" />
-    <sequenceFlow id="_B4912911-1965-4D1F-9532-81580D8200EE-_0FA84C68-FDF4-4932-B02E-CF7BEACE4405" sourceRef="_B4912911-1965-4D1F-9532-81580D8200EE" targetRef="_0FA84C68-FDF4-4932-B02E-CF7BEACE4405" />
-    <sequenceFlow id="_0FA84C68-FDF4-4932-B02E-CF7BEACE4405-_04D27583-5419-42C8-A0B5-F85E5E35BAFC" sourceRef="_0FA84C68-FDF4-4932-B02E-CF7BEACE4405" targetRef="_04D27583-5419-42C8-A0B5-F85E5E35BAFC" />
-    <sequenceFlow id="_0FA84C68-FDF4-4932-B02E-CF7BEACE4405-_406504CA-672D-4D8D-A344-4817683B167F" sourceRef="_0FA84C68-FDF4-4932-B02E-CF7BEACE4405" targetRef="_406504CA-672D-4D8D-A344-4817683B167F" />
-    <sequenceFlow id="_04D27583-5419-42C8-A0B5-F85E5E35BAFC-_4EC3DFFF-7756-4ADC-9FDB-7A1793ED5538" sourceRef="_04D27583-5419-42C8-A0B5-F85E5E35BAFC" targetRef="_4EC3DFFF-7756-4ADC-9FDB-7A1793ED5538" />
-    <sequenceFlow id="_406504CA-672D-4D8D-A344-4817683B167F-_4EC3DFFF-7756-4ADC-9FDB-7A1793ED5538" sourceRef="_406504CA-672D-4D8D-A344-4817683B167F" targetRef="_4EC3DFFF-7756-4ADC-9FDB-7A1793ED5538" />
-    <sequenceFlow id="_E524A570-E18B-4659-92A3-B5C454BB6D1B-_F9A29108-44D7-42AB-9A2D-F31EA512DC11" sourceRef="_E524A570-E18B-4659-92A3-B5C454BB6D1B" targetRef="_F9A29108-44D7-42AB-9A2D-F31EA512DC11" />
-    <sequenceFlow id="_4EC3DFFF-7756-4ADC-9FDB-7A1793ED5538-_E524A570-E18B-4659-92A3-B5C454BB6D1B" sourceRef="_4EC3DFFF-7756-4ADC-9FDB-7A1793ED5538" targetRef="_E524A570-E18B-4659-92A3-B5C454BB6D1B" />
+    <sequenceFlow id="_1-_2" sourceRef="_1-start" targetRef="_2-task" />
+    <sequenceFlow id="_2-_3" sourceRef="_2-task" targetRef="_3-gateway" />
+    <sequenceFlow id="_3-_4" sourceRef="_3-gateway" targetRef="_4-task" />
+    <sequenceFlow id="_3-_5" sourceRef="_3-gateway" targetRef="_5-task" />
+    <sequenceFlow id="_4-_6-" sourceRef="_4-task" targetRef="_6-gateway" />
+    <sequenceFlow id="_5-_6" sourceRef="_5-task" targetRef="_6-gateway" />
+    <sequenceFlow id="_7-_8" sourceRef="_7-script" targetRef="_8-end" />
+    <sequenceFlow id="_6--_7" sourceRef="_6-gateway" targetRef="_7-script" />
 
   </process>
-
-  <bpmndi:BPMNDiagram>
-    <bpmndi:BPMNPlane bpmnElement="org.jbpm.writedocument" >
-      <bpmndi:BPMNShape bpmnElement="_2E8E392C-31A0-4E34-8310-05EADDC4C2B5" >
-        <dc:Bounds x="182" y="201" width="48" height="48" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="_B4912911-1965-4D1F-9532-81580D8200EE" >
-        <dc:Bounds x="266" y="185" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="_0FA84C68-FDF4-4932-B02E-CF7BEACE4405" >
-        <dc:Bounds x="407" y="201" width="48" height="48" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="_04D27583-5419-42C8-A0B5-F85E5E35BAFC" >
-        <dc:Bounds x="487" y="70" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="_406504CA-672D-4D8D-A344-4817683B167F" >
-        <dc:Bounds x="487" y="280" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="_4EC3DFFF-7756-4ADC-9FDB-7A1793ED5538" >
-        <dc:Bounds x="637" y="201" width="48" height="48" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="_F9A29108-44D7-42AB-9A2D-F31EA512DC11" >
-        <dc:Bounds x="841" y="197" width="48" height="48" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="_E524A570-E18B-4659-92A3-B5C454BB6D1B" >
-        <dc:Bounds x="720" y="184" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge bpmnElement="_2E8E392C-31A0-4E34-8310-05EADDC4C2B5-_B4912911-1965-4D1F-9532-81580D8200EE" >
-        <di:waypoint x="206" y="225" />
-        <di:waypoint x="316" y="225" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="_B4912911-1965-4D1F-9532-81580D8200EE-_0FA84C68-FDF4-4932-B02E-CF7BEACE4405" >
-        <di:waypoint x="316" y="225" />
-        <di:waypoint x="431" y="225" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="_0FA84C68-FDF4-4932-B02E-CF7BEACE4405-_04D27583-5419-42C8-A0B5-F85E5E35BAFC" >
-        <di:waypoint x="431" y="225" />
-        <di:waypoint x="431" y="110" />
-        <di:waypoint x="537" y="110" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="_0FA84C68-FDF4-4932-B02E-CF7BEACE4405-_406504CA-672D-4D8D-A344-4817683B167F" >
-        <di:waypoint x="431" y="225" />
-        <di:waypoint x="431" y="320" />
-        <di:waypoint x="537" y="320" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="_04D27583-5419-42C8-A0B5-F85E5E35BAFC-_4EC3DFFF-7756-4ADC-9FDB-7A1793ED5538" >
-        <di:waypoint x="537" y="110" />
-        <di:waypoint x="661" y="110" />
-        <di:waypoint x="661" y="225" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="_406504CA-672D-4D8D-A344-4817683B167F-_4EC3DFFF-7756-4ADC-9FDB-7A1793ED5538" >
-        <di:waypoint x="537" y="320" />
-        <di:waypoint x="661" y="320" />
-        <di:waypoint x="661" y="225" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="_E524A570-E18B-4659-92A3-B5C454BB6D1B-_F9A29108-44D7-42AB-9A2D-F31EA512DC11" >
-        <di:waypoint x="770" y="224" />
-        <di:waypoint x="865" y="221" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="_4EC3DFFF-7756-4ADC-9FDB-7A1793ED5538-_E524A570-E18B-4659-92A3-B5C454BB6D1B" >
-        <di:waypoint x="661" y="225" />
-        <di:waypoint x="770" y="224" />
-      </bpmndi:BPMNEdge>
-    </bpmndi:BPMNPlane>
-  </bpmndi:BPMNDiagram>
 
 </definitions>
