@@ -3,7 +3,6 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xmlns="http://www.omg.org/bpmn20" 
     xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" 
-    xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" 
     xmlns:bpsim="http://www.bpsim.org/schemas/1.0" 
     xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" 
     xmlns:di="http://www.omg.org/spec/DD/20100524/DI" 
