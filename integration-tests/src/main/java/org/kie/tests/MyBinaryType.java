@@ -1,5 +1,7 @@
 package org.kie.tests;
 
+import java.io.Serializable;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -8,7 +10,7 @@ import javax.xml.bind.annotation.XmlSchemaType;
 
 @XmlRootElement(name="my-type")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class MyBinaryType {
+public class MyBinaryType implements Serializable {
 
     @XmlElement
     @XmlSchemaType(name="string")
