@@ -5,7 +5,7 @@
                    xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" 
                    xmlns:di="http://www.omg.org/spec/DD/20100524/DI" 
                    xmlns:drools="http://www.jboss.org/drools" 
-                   xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd" 
+                   xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL https://www.omg.org/spec/BPMN/20100501/BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd"
                    id="Definitions_1" 
                    targetNamespace="http://www.jboss.org/drools">
   <import importType="http://www.java.com/javaTypes" location="org.kie.tests.Request" namespace="http://org.kie.tests"/>
