@@ -5,9 +5,12 @@
                    xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" 
                    xmlns:di="http://www.omg.org/spec/DD/20100524/DI" 
                    xmlns:drools="http://www.jboss.org/drools" 
-                   xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL https://www.omg.org/spec/BPMN/20100501/BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd"
-                   id="Definitions_1" 
-                   targetNamespace="http://www.jboss.org/drools">
+                   id="Definitions_1"
+                   targetNamespace="http://www.jboss.org/drools"
+                   xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL https://www.omg.org/spec/BPMN/20100501/BPMN20.xsd
+                                       http://www.omg.org/spec/BPMN/20100524/DI https://www.omg.org/spec/BPMN/20100501/BPMNDI.xsd
+                                       http://www.jboss.org/drools drools.xsd
+                                       http://www.bpsim.org/schemas/1.0 bpsim.xsd">
   <import importType="http://www.java.com/javaTypes" location="org.kie.tests.Request" namespace="http://org.kie.tests"/>
   <import importType="http://www.java.com/javaTypes" location="org.kie.tests.Person" namespace="http://org.kie.tests"/>
 
