@@ -9,10 +9,13 @@
   xmlns:di="http://www.omg.org/spec/DD/20100524/DI" 
   xmlns:drools="http://www.jboss.org/drools" 
   id="_LpcXUIUYEeOnXMffCGMFwg" 
-  xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL https://www.omg.org/spec/BPMN/20100501/BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd"
-  expressionLanguage="http://www.mvel.org/2.0" 
+  expressionLanguage="http://www.mvel.org/2.0"
   targetNamespace="http://www.omg.org/bpmn20" 
-  typeLanguage="http://www.java.com/javaTypes">
+  typeLanguage="http://www.java.com/javaTypes"
+  xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL https://www.omg.org/spec/BPMN/20100501/BPMN20.xsd
+                      http://www.omg.org/spec/BPMN/20100524/DI https://www.omg.org/spec/BPMN/20100501/BPMNDI.xsd
+                      http://www.jboss.org/drools drools.xsd
+                      http://www.bpsim.org/schemas/1.0 bpsim.xsd">
 
   <bpmn2:itemDefinition id="_varItem" structureRef="String"/>
 
