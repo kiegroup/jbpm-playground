@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.kie</groupId>
+    <artifactId>kie-parent</artifactId>
+    <!-- it must be a final one as the image must be on dockerhub -->
+    <version>7.58.0.Final</version>
+  </parent>
+  
+  <groupId>org.jbpm</groupId>
+  <artifactId>jbpm-system-test</artifactId>
+  <packaging>pom</packaging>
+
+  <name>jBPM :: System Test</name>
+  <description>jBPM System Test</description>
+
+  <properties>
+    <maven.deploy.skip>true</maven.deploy.skip>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <junit.version>5.7.0</junit.version>
+    <junit-platform-engine.version>1.7.0</junit-platform-engine.version>
+    <version.org.postgresql>42.2.18</version.org.postgresql>
+    <hikaricp.version>3.4.5</hikaricp.version>
+    <hamcrest.version>2.2</hamcrest.version>
+  </properties>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <modules>
+    <module>jbpm-clustered-ejb-timers-test</module>
+    <module>jbpm-tx-ejb-timers-test</module>
+  </modules>
+
+</project>
