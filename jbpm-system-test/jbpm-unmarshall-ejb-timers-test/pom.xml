@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.jbpm</groupId>
+    <artifactId>jbpm-system-test</artifactId>
+    <version>7.59.0.Final</version>
+  </parent>
+
+  <artifactId>jbpm-unmarshall-ejb-timers-test</artifactId>
+  
+  <name>Unmarshall EJB Timers</name>
+  <description>System tests using unmarshall EJB timers</description>
+
+  <properties>
+    <maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
+  </properties>
+  
+  <dependencies>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>testcontainers</artifactId>
+      <exclusions>
+        <exclusion>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </exclusion>
+      </exclusions>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>${version.org.testcontainers}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>${version.org.testcontainers}</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.zaxxer</groupId>
+      <artifactId>HikariCP</artifactId>
+      <version>${hikaricp.version}</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.kie.server</groupId>
+      <artifactId>kie-server-client</artifactId>
+      <version>${version.org.kie}</version>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-ci</artifactId>
+      <version>${version.org.kie}</version>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest</artifactId>
+      <version>${hamcrest.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <testResources>
+      <testResource>
+        <directory>src/test/resources</directory>
+        <filtering>false</filtering>
+      </testResource>
+    </testResources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>8</source>
+          <target>8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>compile</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/drivers</outputDirectory>
+              <includeGroupIds>org.postgresql</includeGroupIds>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.googlecode.maven-download-plugin</groupId>
+        <artifactId>download-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>wget</goal>
+            </goals>
+            <configuration>
+              <url>http://raw.githubusercontent.com/kiegroup/jbpm/${version.org.kie}/jbpm-db-scripts/src/main/resources/db/ddl-scripts/postgresql/postgresql-jbpm-schema.sql</url>
+              <outputFileName>postgresql-jbpm-schema.sql</outputFileName>
+              <unpack>false</unpack>
+              <outputDirectory>${project.build.directory}/postgresql</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <!-- this downgrade is needed to make it run with junit 4 -->
+        <version>${maven-surefire-plugin.version}</version>
+        <configuration>
+          <systemPropertyVariables>
+            <org.kie.samples.image>${org.kie.samples.image}</org.kie.samples.image>
+            <org.kie.samples.script>${org.kie.samples.script}</org.kie.samples.script>
+            <org.kie.samples.server>${org.kie.samples.server}</org.kie.samples.server>
+            <org.kie.samples.image.postgresql>postgres:11.5</org.kie.samples.image.postgresql>
+          </systemPropertyVariables>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>kie-server</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <org.kie.samples.image>jboss/kie-server-showcase:${version.org.kie}</org.kie.samples.image>
+        <org.kie.samples.script>start_kie-server.sh</org.kie.samples.script>
+        <org.kie.samples.server>kie-server</org.kie.samples.server>
+      </properties>
+    </profile>
+  </profiles>
+</project>

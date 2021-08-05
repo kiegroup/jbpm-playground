@@ -8,7 +8,11 @@
     <groupId>org.kie</groupId>
     <artifactId>kie-parent</artifactId>
     <!-- it must be a final one as the image must be on dockerhub -->
+<<<<<<< HEAD
     <version>7.61.0.Final</version>
+=======
+    <version>7.59.0.Final</version>
+>>>>>>> ac48b74... add test scenario for unmarshalled timers
   </parent>
   
   <groupId>org.jbpm</groupId>
@@ -43,6 +47,7 @@
   <modules>
     <module>jbpm-clustered-ejb-timers-test</module>
     <module>jbpm-tx-ejb-timers-test</module>
+    <module>jbpm-unmarshall-ejb-timers-test</module>
   </modules>
 
 </project>
