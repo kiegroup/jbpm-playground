@@ -1,0 +1,50 @@
+embed-server --server-config=standalone-full-kie-server.xml
+
+## Activate trace, if needed
+##---------------------------
+##/subsystem=logging/logger=org.jboss.security/:add(level=TRACE,use-parent-handlers=true)
+/subsystem=logging/logger=org.jboss.as.ejb3.timer:add(level=DEBUG,use-parent-handlers=true)
+/subsystem=logging/logger=org.jbpm/:add(level=TRACE,use-parent-handlers=true)
+/subsystem=logging/logger=org.kie/:add(level=TRACE,use-parent-handlers=true)
+##/subsystem=logging/logger=org.wildfly.security/:add(level=TRACE,use-parent-handlers=true)
+##/subsystem=logging/logger=org.wildfly.elytron/:add(level=TRACE,use-parent-handlers=true)
+##/subsystem=logging/logger=org.wildfly.extension.undertow/:add(level=TRACE,use-parent-handlers=true)
+/subsystem=logging/console-handler=CONSOLE:write-attribute(name=level, value=TRACE)
+##
+
+## Dump http requests
+##-------------------
+## Simple:
+ /subsystem=undertow/server=default-server/host=default-host/setting=access-log:\
+  add(pattern="%h %t \"%r\" %s ", use-server-log=true)
+##
+## Verbose:
+## batch
+## /subsystem=undertow/configuration=filter/custom-filter=request-logging-filter:add(class-name=io.undertow.server.handlers.RequestDumpingHandler, module=io.undertow.core)
+## /subsystem=undertow/server=default-server/host=default-host/filter-ref=request-logging-filter:add
+## run-batch
+
+
+# Adding postgresql driver as a core module
+module add --name=com.postgresql --resources=/etc/drivers/postgresql.jar --dependencies=javax.api,javax.transaction.api
+
+/subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql,driver-module-name=com.postgresql,\
+driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)
+
+xa-data-source add --name=rhpamXADS --jndi-name=java:/rhpamXADS --driver-name=postgresql --user-name=rhpamuser \
+--password=rhpampassword --validate-on-match=true --background-validation=false \
+--valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker \
+--exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter \
+--xa-datasource-properties={"ServerName"=>"postgresql11","PortNumber"=>"5432","DatabaseName"=>"rhpamdatabase"}
+
+#Configure postgresql as kieserver persistence
+/system-property=org.kie.server.persistence.ds:add(value=java:/rhpamXADS)
+/system-property=org.kie.server.persistence.dialect:add(value=org.hibernate.dialect.PostgreSQLDialect)
+
+#EJB Timer configuration
+/subsystem=ejb3/service=timer-service/file-data-store=default-file-store:remove
+/subsystem=ejb3/service=timer-service/database-data-store=ejb_timer_ds:add(datasource-jndi-name="java:/rhpamXADS",database="postgresql",partition="ejb_timer_node1_part",refresh-interval="10000")
+/subsystem=ejb3/service=timer-service:write-attribute(name="default-data-store", value="ejb_timer_ds")
+
+
+stop-embedded-server
