@@ -92,8 +92,6 @@ class TxEJBTimerSystemTest {
                                         .withNetwork(network)
                                         .withNetworkAliases("postgresql11");
     
-    
-    @Container
     public static KieServerContainer kieServer = new KieServerContainer(network, args);
     
     private static KieServicesClient ksClient;
@@ -104,13 +102,15 @@ class TxEJBTimerSystemTest {
     
     @BeforeAll
     public static void setup() {
-        logger.info("KIE SERVER 1 started at port "+kieServer.getKiePort());
+        kieServer.start();
+
+        logger.info("KIE Server started at port "+kieServer.getKiePort());
         logger.info("postgresql started at "+postgreSQLContainer.getJdbcUrl());
-        
+
         ksClient = authenticate(kieServer.getKiePort(), DEFAULT_USER, DEFAULT_PASSWORD);
-        
+
         processClient = ksClient.getServicesClient(ProcessServicesClient.class);
-        
+
         ds = getDataSource();
     }
     
@@ -121,6 +121,8 @@ class TxEJBTimerSystemTest {
 
     @AfterAll
     public static void tearDown() throws Exception {
+        kieServer.stop();
+        
         DockerClient docker = DockerClientFactory.instance().client();
         docker.listImagesCmd().withLabelFilter("autodelete=true").exec().stream()
          .filter(c -> c.getId() != null)
@@ -151,8 +153,8 @@ class TxEJBTimerSystemTest {
         logger.info("Sending signal");
         processClient.signal(containerId, "Signal", null);
         
-        logger.info("Sleeping 5 s");
-        Thread.sleep(5000);
+        logger.info("Sleeping 10 s");
+        Thread.sleep(10000);
         
         assertEquals("there should be "+expectedTimersAfterRollback+" timer at the table after the rollback",
                       expectedTimersAfterRollback, performQuery(SELECT_COUNT_FROM_JBOSS_EJB_TIMER).getInt(1));

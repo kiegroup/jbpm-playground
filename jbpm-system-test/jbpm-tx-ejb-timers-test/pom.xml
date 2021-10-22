@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.jbpm</groupId>
     <artifactId>jbpm-system-test</artifactId>
-    <version>7.61.0.Final</version>
+    <version>7.64.0.Final</version>
   </parent>
   
   <artifactId>jbpm-tx-ejb-timers-test</artifactId>
@@ -192,7 +192,7 @@
             <org.kie.samples.server>kie-server</org.kie.samples.server>
             <org.jbpm.ejb.timer.local.cache>false</org.jbpm.ejb.timer.local.cache>
             <org.jbpm.ejb.timer.tx>true</org.jbpm.ejb.timer.tx>
-            <org.kie.samples.image.postgresql>postgres:11.5</org.kie.samples.image.postgresql>
+            <org.kie.samples.image.postgresql>postgres:${image.postgresql.version}</org.kie.samples.image.postgresql>
           </systemPropertyVariables>
         </configuration>
       </plugin>

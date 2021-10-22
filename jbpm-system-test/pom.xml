@@ -8,11 +8,7 @@
     <groupId>org.kie</groupId>
     <artifactId>kie-parent</artifactId>
     <!-- it must be a final one as the image must be on dockerhub -->
-<<<<<<< HEAD
-    <version>7.61.0.Final</version>
-=======
-    <version>7.59.0.Final</version>
->>>>>>> ac48b74... add test scenario for unmarshalled timers
+    <version>7.64.0.Final</version>
   </parent>
   
   <groupId>org.jbpm</groupId>
@@ -30,6 +26,7 @@
     <version.org.postgresql>42.2.18</version.org.postgresql>
     <hikaricp.version>3.4.5</hikaricp.version>
     <hamcrest.version>2.2</hamcrest.version>
+    <image.postgresql.version>13.2</image.postgresql.version>
   </properties>
   
   <build>
@@ -48,6 +45,7 @@
     <module>jbpm-clustered-ejb-timers-test</module>
     <module>jbpm-tx-ejb-timers-test</module>
     <module>jbpm-unmarshall-ejb-timers-test</module>
+    <module>jbpm-duplicated-deadlines-test</module>
   </modules>
 
 </project>
