@@ -8,7 +8,7 @@
     <groupId>org.kie</groupId>
     <artifactId>kie-parent</artifactId>
     <!-- it must be a final one as the image must be on dockerhub -->
-    <version>7.58.0.Final</version>
+    <version>7.61.0.Final</version>
   </parent>
   
   <groupId>org.jbpm</groupId>

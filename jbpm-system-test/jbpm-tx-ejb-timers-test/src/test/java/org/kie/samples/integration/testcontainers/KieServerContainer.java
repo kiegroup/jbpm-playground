@@ -45,6 +45,7 @@ public class KieServerContainer extends GenericContainer<KieServerContainer>{
     
       withEnv("START_SCRIPT", args.get("START_SCRIPT"));
       withEnv("JAVA_OPTS", "-Xms256m -Xmx2048m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=512m -Djava.net.preferIPv4Stack=true -Dfile.encoding=UTF-8 "+
+                           "-Dorg.kie.jbpm.timer.retry.limit=1 -Dorg.kie.jbpm.timer.retry.interval=500 "+
                            "-Dorg.jbpm.ejb.timer.local.cache="+args.get("cache")+" -Dorg.jbpm.ejb.timer.tx="+args.get("timer-tx"));
       withNetwork(network);
       withNetworkAliases(ALIAS);
