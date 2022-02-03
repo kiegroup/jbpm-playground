@@ -7,7 +7,7 @@ ARG IMAGE_NAME
 FROM maven:3.6.3-openjdk-8-slim as builder
 LABEL autodelete="true"
 COPY etc/kjars/ /etc/kjars/
-RUN mvn --file /etc/kjars/cluster-ejb-sample/pom.xml --batch-mode install -DskipTests
+RUN mvn --file /etc/kjars/unmarshall-ejb-sample/pom.xml --batch-mode install -DskipTests
 
 #########################################################
 # Dockerfile that provides the image for KIE Server
@@ -22,18 +22,11 @@ COPY --from=builder /root/.m2 /opt/jboss/.m2
 ENV KIE_SERVER_PROFILE standalone
 
 ENV JAVA_OPTS -Xms256m -Xmx2048m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=512m -Djava.net.preferIPv4Stack=true -Dfile.encoding=UTF-8 \
- -Dorg.uberfire.domain=other -Dorg.jbpm.ejb.timer.local.cache=false -Dorg.jbpm.ejb.timer.tx=true -Dorg.kie.controller.ping.alive.timeout=5000000 -Dorg.kie.jbpm.timer.retry.limit=1 -Dorg.kie.jbpm.timer.retry.interval=100
+ -Dorg.uberfire.domain=other -Dorg.jbpm.ejb.timer.local.cache=false -Dorg.jbpm.ejb.timer.tx=true -Dorg.kie.controller.ping.alive.timeout=5000000 \
+ -Dorg.jbpm.timer.disableUnmarshallerRegistration=true
 
 COPY etc/drivers /etc/drivers/
 ADD etc/jbpm-custom.cli $JBOSS_HOME/bin/jbpm-custom.cli
-
-######################################
-# Replace the jar by the patched one
-#
-RUN rm $JBOSS_HOME/standalone/deployments/kie-server.war/WEB-INF/lib/jbpm-services-ejb-timer-7.64.0.Final.jar
-ADD etc/jbpm-services-ejb-timer-7.64.0.Final.jar $JBOSS_HOME/standalone/deployments/kie-server.war/WEB-INF/lib/jbpm-services-ejb-timer-7.64.0.Final.jar
-#######################################
-
 
 USER root
 
