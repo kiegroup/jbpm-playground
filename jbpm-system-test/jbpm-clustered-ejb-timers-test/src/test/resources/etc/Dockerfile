@@ -27,14 +27,6 @@ ENV JAVA_OPTS -Xms256m -Xmx2048m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=512m
 COPY etc/drivers /etc/drivers/
 ADD etc/jbpm-custom.cli $JBOSS_HOME/bin/jbpm-custom.cli
 
-######################################
-# Replace the jar by the patched one
-#
-RUN rm $JBOSS_HOME/standalone/deployments/kie-server.war/WEB-INF/lib/jbpm-services-ejb-timer-7.64.0.Final.jar
-ADD etc/jbpm-services-ejb-timer-7.64.0.Final.jar $JBOSS_HOME/standalone/deployments/kie-server.war/WEB-INF/lib/jbpm-services-ejb-timer-7.64.0.Final.jar
-#######################################
-
-
 USER root
 
 RUN chmod +x $JBOSS_HOME/bin/jboss-cli.sh
