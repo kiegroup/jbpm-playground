@@ -1,0 +1,183 @@
+dn: ou=People,dc=jbpm,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: People
+
+dn: ou=Roles,dc=jbpm,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: Roles
+
+dn: uid=kieserver,ou=People,dc=jbpm,dc=org
+objectclass: top
+objectclass: uidObject
+objectclass: person
+objectClass: inetOrgPerson
+uid: kieserver
+cn: kieserver
+sn: kieserver
+displayName: kieserver
+mail: kieserver@jbpm.org
+userPassword: kieserver1!
+
+dn: uid=krisv,ou=People,dc=jbpm,dc=org
+objectclass: top
+objectclass: uidObject
+objectclass: person
+objectClass: inetOrgPerson
+uid: krisv
+cn: krisv
+sn: KrisV
+displayName: Kris Verlaenen
+mail: krisv@jbpm.org
+userPassword: krisv3
+
+dn: uid=john,ou=People,dc=jbpm,dc=org
+objectclass: top
+objectclass: uidObject
+objectclass: person
+objectClass: inetOrgPerson
+uid: john
+cn: john
+sn: John
+displayName: John Doe
+mail: john@jbpm.org
+userPassword: john
+
+dn: uid=mary,ou=People,dc=jbpm,dc=org
+objectclass: top
+objectclass: uidObject
+objectclass: person
+objectClass: inetOrgPerson
+uid: mary
+cn: mary
+sn: Mary
+displayName: Mary Bloody
+mail: mary@jbpm.org
+userPassword: mary
+
+dn: uid=Administrator,ou=People,dc=jbpm,dc=org
+objectclass: top
+objectclass: uidObject
+objectclass: person
+objectClass: inetOrgPerson
+uid: Administrator
+cn: Administrator
+sn: Administrator
+displayName: Administrator of jBPM
+mail: admin@jbpm.org
+userPassword: admin
+
+dn: uid=userWithNoRoles,ou=People,dc=jbpm,dc=org
+objectclass: top
+objectclass: uidObject
+objectclass: person
+objectClass: inetOrgPerson
+uid: userWithNoRoles
+cn: userWithNoRoles
+sn: userWithNoRoles
+displayName: userWithNoRoles of jBPM
+mail: userWithNoRoles@jbpm.org
+userPassword: pwWithNoRoles
+
+dn: uid=Bartlet,ou=People,dc=jbpm,dc=org
+objectclass: top
+objectclass: uidObject
+objectclass: person
+objectClass: inetOrgPerson
+uid: Bartlet
+cn: Bartlet
+sn: Bartlet
+displayName: President Bartlet
+mail: bartlet@jbpm.org
+userPassword: 123456
+
+dn: uid=anonymous,ou=People,dc=jbpm,dc=org
+objectclass: top
+objectclass: uidObject
+objectclass: person
+objectClass: inetOrgPerson
+uid: anonymous
+cn: anonymous
+sn: anonymous
+displayName: anonymous
+mail: anonymous@jbpm.org
+userPassword: anonymous
+
+dn: cn=rest-all,ou=Roles,dc=jbpm,dc=org
+objectClass: groupofuniquenames
+objectClass: top
+cn: rest-all
+description: rest-all group
+ou: rest-all@jbpm.org
+uniquemember: uid=kieserver,ou=People,dc=jbpm,dc=org
+uniquemember: uid=krisv,ou=People,dc=jbpm,dc=org
+uniquemember: uid=john,ou=People,dc=jbpm,dc=org
+uniquemember: uid=mary,ou=People,dc=jbpm,dc=org
+uniquemember: uid=Administrator,ou=People,dc=jbpm,dc=org
+
+dn: cn=process-admin,ou=Roles,dc=jbpm,dc=org
+objectClass: groupofuniquenames
+objectClass: top
+cn: process-admin
+description: Process-Admin group
+ou: processadmin@jbpm.org
+uniquemember: uid=kieserver,ou=People,dc=jbpm,dc=org
+uniquemember: uid=krisv,ou=People,dc=jbpm,dc=org
+uniquemember: uid=john,ou=People,dc=jbpm,dc=org
+uniquemember: uid=Administrator,ou=People,dc=jbpm,dc=org
+
+dn: cn=admin,ou=Roles,dc=jbpm,dc=org
+objectClass: groupofuniquenames
+objectClass: top
+cn: admin
+description: Admin group
+ou: admin@jbpm.org
+uniquemember: uid=kieserver,ou=People,dc=jbpm,dc=org
+uniquemember: uid=krisv,ou=People,dc=jbpm,dc=org
+uniquemember: uid=john,ou=People,dc=jbpm,dc=org
+uniquemember: uid=Administrator,ou=People,dc=jbpm,dc=org
+
+dn: cn=manager,ou=Roles,dc=jbpm,dc=org
+objectClass: groupofuniquenames
+objectClass: top
+cn: manager
+description: Manager group
+ou: managers@jbpm.org
+uniquemember: uid=krisv,ou=People,dc=jbpm,dc=org
+uniquemember: uid=john,ou=People,dc=jbpm,dc=org
+uniquemember: uid=mary,ou=People,dc=jbpm,dc=org
+uniquemember: uid=Administrator,ou=People,dc=jbpm,dc=org
+
+dn: cn=user,ou=Roles,dc=jbpm,dc=org
+objectClass: groupofuniquenames
+objectClass: top
+cn: user
+description: User group
+ou: users@jbpm.org
+uniquemember: uid=krisv,ou=People,dc=jbpm,dc=org
+uniquemember: uid=john,ou=People,dc=jbpm,dc=org
+uniquemember: uid=mary,ou=People,dc=jbpm,dc=org
+uniquemember: uid=Administrator,ou=People,dc=jbpm,dc=org
+uniquemember: uid=anonymous,ou=People,dc=jbpm,dc=org
+
+dn: cn=kie-server,ou=Roles,dc=jbpm,dc=org
+objectClass: groupofuniquenames
+objectClass: top
+cn: kie-server
+description: kie-server group
+ou: kie-servers@jbpm.org
+uniquemember: uid=krisv,ou=People,dc=jbpm,dc=org
+uniquemember: uid=john,ou=People,dc=jbpm,dc=org
+uniquemember: uid=mary,ou=People,dc=jbpm,dc=org
+uniquemember: uid=Administrator,ou=People,dc=jbpm,dc=org
+uniquemember: uid=kieserver,ou=People,dc=jbpm,dc=org
+uniquemember: uid=Bartlet,ou=People,dc=jbpm,dc=org
+
+dn: cn=President,ou=Roles,dc=jbpm,dc=org
+objectClass: groupofuniquenames
+objectClass: top
+cn: President
+description: President group
+ou: president@jbpm.org
+uniquemember: uid=Bartlet,ou=People,dc=jbpm,dc=org
