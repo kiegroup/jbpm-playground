@@ -27,6 +27,7 @@
     <hikaricp.version>3.4.5</hikaricp.version>
     <hamcrest.version>2.2</hamcrest.version>
     <image.postgresql.version>13.2</image.postgresql.version>
+    <image.openldap.version>1.5.0</image.openldap.version>
   </properties>
   
   <build>
@@ -47,6 +48,7 @@
     <module>jbpm-unmarshall-ejb-timers-test</module>
     <module>jbpm-duplicated-deadlines-test</module>
     <module>jbpm-springboot-mssql-test</module>
+    <module>jbpm-ldap-concurrency-test</module>
   </modules>
 
 </project>
