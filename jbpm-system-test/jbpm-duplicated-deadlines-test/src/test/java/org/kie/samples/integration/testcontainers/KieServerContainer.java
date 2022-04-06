@@ -49,7 +49,7 @@ public class KieServerContainer extends GenericContainer<KieServerContainer>{
       withNetworkAliases(ALIAS);
       withExposedPorts(KIE_PORT);
       withLogConsumer(new Slf4jLogConsumer(logger).withPrefix("KIE-LOG-"+nodeName));
-      waitingFor(Wait.forLogMessage(".*WildFly.*started in.*", 1).withStartupTimeout(Duration.ofMinutes(5L)));
+      waitingFor(Wait.forLogMessage(".*WildFly.*started in.*", 1).withStartupTimeout(Duration.ofMinutes(2L)));
     }
     
     public Integer getKiePort() {

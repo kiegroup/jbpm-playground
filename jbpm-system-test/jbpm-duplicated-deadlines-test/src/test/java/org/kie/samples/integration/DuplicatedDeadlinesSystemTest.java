@@ -35,6 +35,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.Duration;
 import java.time.ZonedDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -124,7 +125,7 @@ class DuplicatedDeadlinesSystemTest {
         .withNetwork(network)
         .withNetworkAliases("mailhog")
         .withLogConsumer(new Slf4jLogConsumer(logger))
-        .waitingFor(Wait.forHttp("/"));
+        .waitingFor(Wait.forHttp("/").withStartupTimeout(Duration.ofMinutes(1L)));
     
     private static KieServicesClient ksClient;
     
