@@ -20,12 +20,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.kie.samples.integration.utils.KieJarBuildHelper;
 import org.kie.server.api.KieServerConstants;
 import org.kie.server.api.marshalling.MarshallingFormat;
@@ -49,14 +49,15 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
 import org.testcontainers.containers.MSSQLServerContainer;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.springframework.test.annotation.DirtiesContext.ClassMode.AFTER_CLASS;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+@ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = {JBPMApplication.class}, webEnvironment = WebEnvironment.RANDOM_PORT)
 @TestPropertySource(locations = "classpath:application-test-mssql.properties")
 @DirtiesContext(classMode= AFTER_CLASS)
@@ -92,14 +93,14 @@ public class KieServerMSSQLTest {
         MSSQL_CONTAINER.start();
     }
     
-    @BeforeClass
+    @BeforeAll
     public static void generalSetup() {
         logger.info("mssql started at "+MSSQL_CONTAINER.getJdbcUrl());
         
         KieJarBuildHelper.createKieJar(PATH + ARTIFACT_ID);
     }
 
-    @AfterClass
+    @AfterAll
     public static void generalCleanup() {
         System.clearProperty(KieServerConstants.KIE_SERVER_MODE);
         MSSQL_CONTAINER.stop();
@@ -112,7 +113,7 @@ public class KieServerMSSQLTest {
         registry.add("spring.datasource.username", MSSQL_CONTAINER::getUsername);
     }
     
-    @Before
+    @BeforeEach
     public void setup() {
         ReleaseId releaseId = new ReleaseId(GROUP_ID, ARTIFACT_ID, VERSION);
         
@@ -127,7 +128,7 @@ public class KieServerMSSQLTest {
         kieServicesClient.createContainer(CONTAINER_ID, resource);
     }
 
-    @After
+    @AfterEach
     public void cleanup() {
         if (kieServicesClient != null) {
             ServiceResponse<Void> response = kieServicesClient.disposeContainer(CONTAINER_ID);
