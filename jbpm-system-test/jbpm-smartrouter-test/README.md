@@ -17,3 +17,15 @@ Once you have cloned the repository locally all you need to do is to execute the
 mvn clean install
 ```
 
+Other options are:
+
+Property      | Function
+------------- | --------------------------------------------------------------
+allToxics     | If present, exercise all the combinations for different toxics
+
+
+Example:
+
+```
+mvn clean install -DallToxics
+```

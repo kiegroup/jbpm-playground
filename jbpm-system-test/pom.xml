@@ -8,7 +8,7 @@
     <groupId>org.kie</groupId>
     <artifactId>kie-parent</artifactId>
     <!-- it must be a final one as the image must be on dockerhub -->
-    <version>7.69.0.Final</version>
+    <version>7.70.0.Final</version>
   </parent>
   
   <groupId>org.jbpm</groupId>
@@ -63,6 +63,13 @@
       <version>${version.org.testcontainers}</version>
       <scope>test</scope>
     </dependency>
+
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>mysql</artifactId>
+      <version>${version.org.testcontainers}</version>
+      <scope>test</scope>
+    </dependency>
     
     <dependency>
       <groupId>com.zaxxer</groupId>
@@ -74,6 +81,12 @@
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
       <scope>test</scope>
     </dependency>
 
@@ -167,6 +180,7 @@
     <module>jbpm-springboot-mssql-test</module>
     <module>jbpm-ldap-concurrency-test</module>
     <module>jbpm-smartrouter-test</module>
+    <module>jbpm-timer-migration-test</module>
   </modules>
 
 </project>
