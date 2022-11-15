@@ -24,6 +24,7 @@ import org.jbpm.customer.services.ManagersReportWorkItemHandler;
 import org.jbpm.services.task.utils.ContentMarshallerHelper;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kie.api.runtime.KieSession;
@@ -103,6 +104,7 @@ public class CDIKIEJUnitTest  {
 
   
     @Test
+    @Ignore("endpoint not available")
     public void processExecutionTest() {
         
         RuntimeEngine engine = runtimeManager.getRuntimeEngine(EmptyContext.get());

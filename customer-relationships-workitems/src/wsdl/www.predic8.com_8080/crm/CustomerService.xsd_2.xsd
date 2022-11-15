@@ -1,5 +1,5 @@
 <?xml version="1.0"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.1-b01-. --><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://predic8.com/crm/1/" xmlns:co="http://predic8.com/common/1/" targetNamespace="http://predic8.com/crm/1/">
-    <xsd:import schemaLocation="http://www.predic8.com:8080/crm/CustomerService?xsd=1" namespace="http://predic8.com/common/1/"></xsd:import>
+    <xsd:import schemaLocation="CustomerService.xsd_1.xsd" namespace="http://predic8.com/common/1/"></xsd:import>
     <xsd:complexType name="CompanyAddressType">
         <xsd:complexContent>
             <xsd:extension base="co:AddressType">

@@ -40,7 +40,10 @@
               <packageName></packageName>
               <wsdlLocation>http://www.predic8.com:8080/crm/CustomerService?wsdl</wsdlLocation>
               <staleFile>${project.build.directory}/jaxws/stale/CustomerService.stale</staleFile>
-              <target>2.0</target>
+	      <target>2.0</target>
+	      <vmArgs>
+                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+              </vmArgs>
             </configuration>
             <id>wsimport-generate-CustomerService</id>
             <phase>generate-sources</phase>

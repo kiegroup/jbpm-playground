@@ -4,7 +4,7 @@
             Common datatypes that are used in different systems.
         </xsd:documentation>
     </xsd:annotation>
-    <xsd:include schemaLocation="http://www.predic8.com:8080/crm/CustomerService?xsd=3"></xsd:include>
+    <xsd:include schemaLocation="CustomerService.xsd_3.xsd"></xsd:include>
     <xsd:simpleType name="IdentifierType">
         <xsd:annotation>
             <xsd:documentation>
