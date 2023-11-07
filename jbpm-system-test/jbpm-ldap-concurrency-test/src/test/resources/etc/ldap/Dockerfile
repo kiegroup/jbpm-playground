@@ -4,11 +4,9 @@
 
 ARG IMAGE_NAME
 ARG SERVER
-ARG NO_PATCH
 
 FROM maven:3.6.3-openjdk-8-slim as builder
 ARG SERVER
-ARG NO_PATCH
 LABEL autodelete="true"
 COPY etc/kjars/ /etc/kjars/
 RUN mvn --file /etc/kjars/ldap-sample/pom.xml --batch-mode install -DskipTests
@@ -19,7 +17,6 @@ RUN mvn --file /etc/kjars/ldap-sample/pom.xml --batch-mode install -DskipTests
 
 FROM $IMAGE_NAME as base
 ARG SERVER
-ARG NO_PATCH
 
 RUN echo "Building from $IMAGE_NAME"
 
@@ -42,15 +39,6 @@ ADD etc/jbpm-custom.cli $JBOSS_HOME/bin/jbpm-custom.cli
 ADD etc/jbpm-human-task-core-7.67.0.Final.jar /WEB-INF/lib/jbpm-human-task-core-7.67.0.Final.jar
 
 RUN echo "Choosing $SERVER"
-
-RUN if [ "$SERVER" == "full" ] && [ -z "$NO_PATCH" ]; then \
-jar -uvf $JBOSS_HOME/standalone/deployments/kie-server.war /WEB-INF/lib/jbpm-human-task-core-7.67.0.Final.jar; \
-fi
-
-RUN if [ "$SERVER" == "kie-server" ] && [ -z "$NO_PATCH" ]; then \
-rm $JBOSS_HOME/standalone/deployments/kie-server.war/WEB-INF/lib/jbpm-human-task-core-*.jar; \
-cp /WEB-INF/lib/jbpm-human-task-core-7.67.0.Final.jar $JBOSS_HOME/standalone/deployments/kie-server.war/WEB-INF/lib/jbpm-human-task-core-7.67.0.Final.jar; \
-fi
 
 COPY etc/drivers /etc/drivers/
 

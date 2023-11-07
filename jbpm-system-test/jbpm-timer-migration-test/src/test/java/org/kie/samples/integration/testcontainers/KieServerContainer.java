@@ -30,25 +30,25 @@ import org.testcontainers.images.builder.ImageFromDockerfile;
 
 public class KieServerContainer extends GenericContainer<KieServerContainer>{
 
+    private static final String ALIAS = "kie-server";
+    private static final int KIE_PORT = 8080;
+
     private static Logger logger = LoggerFactory.getLogger(KieServerContainer.class);
 
-    private static final int KIE_PORT = 8080;
-    
     public KieServerContainer(Network network, Map<String,String> args) {
       super( new ImageFromDockerfile()
            .withBuildArg("IMAGE_NAME", args.get("IMAGE_NAME"))
-           .withBuildArg("SERVER", args.get("SERVER"))
-           .withFileFromClasspath("etc/jbpm-custom.cli", "etc/ldap/jbpm-custom-"+args.get("SERVER")+".cli")
-           .withFileFromClasspath("etc/jbpm.user.info.properties", "etc/jbpm.user.info.properties")
-           .withFileFromClasspath("etc/jbpm.usergroup.callback.properties", "etc/jbpm.usergroup.callback.properties")
-           .withFileFromClasspath("etc/jbpm-human-task-core-7.67.0.Final.jar", "etc/jbpm-human-task-core-7.67.0.Final.jar")
+           .withBuildArg("NO_PATCH", System.getProperty("noPatch"))
+           .withFileFromFile("etc/jbpm-custom.cli", new File("src/test/resources/etc/jbpm-custom.cli"))
            .withFileFromClasspath("etc/kjars", "etc/kjars")
-           .withFileFromClasspath("Dockerfile", "etc/ldap/Dockerfile")
-           .withFileFromFile("etc/drivers/postgresql.jar", new File("target/drivers").listFiles()[0]));
+           .withFileFromClasspath("Dockerfile", "etc/Dockerfile")
+           .withFileFromClasspath("etc/jbpm-flow-7.69.0.Final.jar", "etc/jbpm-flow-7.69.0.Final.jar")
+           .withFileFromFile("etc/drivers/mysql.jar", new File("target/drivers").listFiles()[0]));
     
       withEnv("START_SCRIPT", args.get("START_SCRIPT"));
+      withEnv("JAVA_OPTS", "-Xms256m -Xmx2048m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=512m -Djava.net.preferIPv4Stack=true -Dfile.encoding=UTF-8 ");
       withNetwork(network);
-      withNetworkAliases("kie-server");
+      withNetworkAliases(ALIAS);
       withExposedPorts(KIE_PORT);
       withLogConsumer(new Slf4jLogConsumer(logger).withPrefix("KIE-LOG"));
       waitingFor(Wait.forLogMessage(".*WildFly.*started in.*", 1).withStartupTimeout(Duration.ofMinutes(5L)));

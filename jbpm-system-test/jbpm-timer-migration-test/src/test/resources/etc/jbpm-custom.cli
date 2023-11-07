@@ -1,0 +1,28 @@
+embed-server --server-config=standalone-full-kie-server.xml
+
+## Activate trace, if needed
+##---------------------------
+##/subsystem=logging/logger=org.jboss.security/:add(level=TRACE,use-parent-handlers=true)
+/subsystem=logging/logger=org.jboss.as.ejb3.timer:add(level=DEBUG,use-parent-handlers=true)
+/subsystem=logging/logger=org.jbpm/:add(level=TRACE,use-parent-handlers=true)
+/subsystem=logging/logger=org.kie/:add(level=TRACE,use-parent-handlers=true)
+
+/subsystem=logging/console-handler=CONSOLE:write-attribute(name=level, value=TRACE)
+
+# Adding mysql driver as a core module
+module add --name=com.mysql --resources=/etc/drivers/mysql.jar --dependencies=javax.api,javax.transaction.api
+
+/subsystem=datasources/jdbc-driver=mysql:add(driver-name=mysql,driver-module-name=com.mysql,\
+driver-xa-datasource-class-name=com.mysql.cj.jdbc.MysqlXADataSource)
+
+xa-data-source add --name=rhpamXADS --jndi-name=java:jboss/datasources/mysqlpamDS --driver-name=mysql --user-name=rhpamuser  \
+--password=rhpampassword  --validate-on-match=true --background-validation=false \
+--valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker \
+--exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter \
+--xa-datasource-properties={"ServerName"=>"mysql", "PortNumber"=>"3306", "DatabaseName"=>"bpms64kie"}
+
+#Configure mysql as kieserver persistence
+/system-property=org.kie.server.persistence.ds:add(value=java:jboss/datasources/mysqlpamDS)
+/system-property=org.kie.server.persistence.dialect:add(value=org.hibernate.dialect.MySQL57InnoDBDialect)
+
+stop-embedded-server

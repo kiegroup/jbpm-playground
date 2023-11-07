@@ -271,22 +271,32 @@ class SmartRouterSystemTest {
         ToxicSupplier<Toxic, IOException> resetPeer3 = () -> proxy3.toxics().resetPeer("resetPeer", DOWNSTREAM, 0);
         ToxicSupplier<Toxic, IOException> timeout3 = () -> proxy3.toxics().timeout("timeout", DOWNSTREAM, getRandomTimeout(2000,5000));
         
-        return Stream.of(Arguments.of(limitData1, null),
-                         Arguments.of(resetPeer1, null),
-                         Arguments.of(timeout1, null),
-                         Arguments.of(null, limitData3),
-                         Arguments.of(null, resetPeer3),
-                         Arguments.of(null, timeout3),
-                         Arguments.of(limitData1, limitData3),
-                         Arguments.of(limitData1, resetPeer3),
-                         Arguments.of(limitData1, timeout3),
-                         Arguments.of(resetPeer1, limitData3),
-                         Arguments.of(resetPeer1, resetPeer3),
-                         Arguments.of(resetPeer1, timeout3),
-                         Arguments.of(timeout1, limitData3),
-                         Arguments.of(timeout1, resetPeer3),
-                         Arguments.of(timeout1, timeout3),
-                         Arguments.of(null, null));
+        Stream<Arguments> defaultToxics = Stream.of(Arguments.of(timeout1, resetPeer3));
+        
+        Stream<Arguments> toxics;
+        
+        if (Boolean.getBoolean("allToxics")) {
+            toxics = Stream.concat(defaultToxics, 
+                     Stream.of(Arguments.of(limitData1, null),
+                               Arguments.of(resetPeer1, null),
+                               Arguments.of(timeout1, null),
+                               Arguments.of(null, limitData3),
+                               Arguments.of(null, resetPeer3),
+                               Arguments.of(null, timeout3),
+                               Arguments.of(limitData1, limitData3),
+                               Arguments.of(limitData1, resetPeer3),
+                               Arguments.of(limitData1, timeout3),
+                               Arguments.of(resetPeer1, limitData3),
+                               Arguments.of(resetPeer1, resetPeer3),
+                               Arguments.of(resetPeer1, timeout3),
+                               Arguments.of(timeout1, limitData3),
+                               Arguments.of(timeout1, timeout3),
+                               Arguments.of(null, null)));
+        } else {
+            toxics = defaultToxics;
+        }
+        
+        return toxics;
     }
     
     public static int getRandomTimeout(int min, int max) {

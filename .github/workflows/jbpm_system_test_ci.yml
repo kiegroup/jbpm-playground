@@ -12,11 +12,12 @@ defaults:
 
 jobs:
   jbpm-system-test:
-    runs-on: ubuntu-latest
     strategy:
       matrix:
         java: [ '8', '11' ]
-    name: jbpm-system-test with java ${{ matrix.java }} 
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    name: jbpm-system-test with java ${{ matrix.java }} and os ${{ matrix.os }}
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2

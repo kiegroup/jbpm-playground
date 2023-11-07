@@ -32,14 +32,11 @@ Other options are:
 
 Property      | Function
 ------------- | ----------------------------------------------
-noPatch       | If present, skip the installation of the patch
 ldapLog       | Prints out LDAP image logs
 
 
 Example:
 
 ```
-mvn clean install -Pfull -DnoPatch -DldapLog
+mvn clean install -Pfull -DldapLog
 ```
-
-Notice that for current version (7.67.0.Final) tests will fail if patch is not installed.
